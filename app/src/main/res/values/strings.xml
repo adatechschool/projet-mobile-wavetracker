@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">WaveTracker</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Page d\'accueil</string>
+    <string name="second_fragment_label">Trouvez un spot</string>
+    <string name="next">Trouvez un spot</string>
+    <string name="previous">Accueil</string>
+
+    <string name="text_acc">
+        spot de surf</string>
+    <string name="nom_du_spot">Biarritz</string>
+    <string name="message_accueil">Salut, ça farte?</string>
+    <string name="alt_photo_accueil">Brice de Nice</string>
+    <string name="alt_photo_spot1">Spot en Bretagne</string>
+
+</resources>
