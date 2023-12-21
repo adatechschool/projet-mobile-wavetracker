@@ -9,6 +9,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import android.widget.Toast
 import com.example.wavetracker.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +34,17 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+        }
+
+        val listView: ListView = findViewById(R.id.list_item)
+        val listItems= arrayOf("text", "rtre", "rtee", "fsfe", "dfgfds", "dsdsd")
+
+        val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems)
+        listView.adapter = listAdapter
+
+        listView.setOnItemClickListener{ parent, view, position, id ->
+            val selectedItem = parent.getItemAtPosition(position) as String
+            Toast.makeText(this, "You have clicked on: $selectedItem", Toast.LENGTH_SHORT).show()
         }
     }
 

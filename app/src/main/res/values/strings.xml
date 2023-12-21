@@ -7,11 +7,23 @@
     <string name="next">Trouvez un spot</string>
     <string name="previous">Accueil</string>
 
-    <string name="text_acc">
-        spot de surf</string>
-    <string name="nom_du_spot">Biarritz</string>
+    <!-- Accueil -->
     <string name="message_accueil">Salut, ça farte?</string>
     <string name="alt_photo_accueil">Brice de Nice</string>
-    <string name="alt_photo_spot1">Spot en Bretagne</string>
+    <!-- Premier spot de la liste -->
+    <string name="alt_photo_spot1">Spot 1</string>
+    <string name="nom_du_spot1">Lieu 1</string>
+    <!-- Deuxieme spot de la liste -->
+    <string name="alt_photo_spot2">Spot 2</string>
+    <string name="nom_du_spot2">Lieu 2</string>
+    <!-- Troisième spot de la liste -->
+    <string name="alt_photo_spot3">Spot 3</string>
+    <string name="nom_du_spot3">Lieu 3</string>
+    <!-- Quatrième spot de la liste -->
+    <string name="alt_photo_spot4">Spot 4</string>
+    <string name="nom_du_spot4">Lieu 4</string>
+    <!-- Cinquième spot de la liste -->
+    <string name="alt_photo_spot5">Spot 5</string>
+    <string name="nom_du_spot5">Lieu 5</string>
 
 </resources>

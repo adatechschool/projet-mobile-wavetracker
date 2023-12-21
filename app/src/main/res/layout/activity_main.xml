@@ -7,6 +7,15 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/list_item"
+        android:scrollbars="vertical"
+        android:layout_marginTop="12dp"
+        />
+
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
