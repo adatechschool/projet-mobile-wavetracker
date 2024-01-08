@@ -13,22 +13,11 @@
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/list_item" />
+            app:destination="@id/listName" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.wavetracker.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/ListItemFragment"
-        android:name="com.example.wavetracker"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 

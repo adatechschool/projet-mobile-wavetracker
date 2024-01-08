@@ -36,16 +36,17 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
 
-        val listView: ListView = findViewById(R.id.list_item)
-        val listItems= arrayOf("text", "rtre", "rtee", "fsfe", "dfgfds", "dsdsd")
+        val listView = findViewById<ListView>(R.id.listViewSpots)
+        val image1 = R.drawable._c11acc80ba52f843cb7abdfa2a44a2b
+        val image2 = R.drawable.spotdesurf2
 
-        val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems)
-        listView.adapter = listAdapter
+        val spots = listOf(
+            Spot(image1, "Spot 1", "Lieu 1"),
+            Spot(image2, "Spot 2", "Lieu 2")
+        )
 
-        listView.setOnItemClickListener{ parent, view, position, id ->
-            val selectedItem = parent.getItemAtPosition(position) as String
-            Toast.makeText(this, "You have clicked on: $selectedItem", Toast.LENGTH_SHORT).show()
-        }
+        val adapter = SpotAdapter(this, spots)
+        listView.adapter = adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
