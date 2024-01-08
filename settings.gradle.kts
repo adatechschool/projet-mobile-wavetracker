@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "WaveTracker"
+rootProject.name = "WaveTrackerCompose"
 include(":app")
  
