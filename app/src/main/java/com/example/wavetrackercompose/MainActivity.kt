@@ -23,23 +23,39 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             WaveTrackerComposeTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Spot(Spots.spotsSample)
-
+                val navController = rememberNavController()
+                NavHost(navController = navController, startDestination = "spotlist") {
+                    composable("spotlist") {
+                        SpotList(
+                            detailsButtonClick = { navController.navigate("spotdetails") },
+                            userButtonClick = { navController.navigate("user") }) }
+                    composable("spotdetails") { SpotDetails(/*...*/) }
+                    composable("user") { User(/*...*/) }
+                    /*...*/
                 }
+
+                // A surface container using the 'background' color from the theme
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {
+//                    Spot(Spots.spotsSample)
+//
+//                }
             }
         }
     }
@@ -100,7 +116,6 @@ fun PreviewSpotCard() {
 }
 
 
-
 @Composable
 fun Spot(spots: List<Spot>) {
     LazyColumn {
@@ -109,3 +124,29 @@ fun Spot(spots: List<Spot>) {
         }
     }
 }
+
+
+@Composable
+fun SpotList(detailsButtonClick: () -> Unit, userButtonClick: () -> Unit) {
+    Column {
+        Button(onClick = detailsButtonClick) {
+            Text(text = "Détails")
+        }
+
+        Button(onClick = userButtonClick) {
+            Text(text = "User")
+        }
+    }
+
+}
+
+@Composable
+fun SpotDetails() {
+    Text(text = "Details")
+}
+
+@Composable
+fun User() {
+    Text(text = "User")
+}
+
