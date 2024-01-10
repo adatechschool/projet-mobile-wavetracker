@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
                         val spot = Spots.spotsSample.find { spot -> spot.id == backStackEntry.arguments?.getInt("spotId") }
                         SpotDetails(spot!!)
                     }
-                    composable("user") { User(/*...*/) }
+//                    composable("user") { User(/*...*/) }
                     /*...*/
                 }
 
@@ -168,8 +168,8 @@ fun SpotDetails(content: Spot) {
     }
 }
 
-@Composable
-fun User() {
-    Text(text = "User")
-}
+//@Composable
+//fun User() {
+//    Text(text = "User")
+//}
 
