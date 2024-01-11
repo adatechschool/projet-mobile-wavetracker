@@ -14,10 +14,19 @@ data class Record(
 data class Field(
     val Destination : String,
     val Address : String,
-    val Photos : List<Photo>
+    val Photos : List<Photos>
 )
 
-data class Photo(
+data class Photos(
     val id : String,
-    val url : String
+    val url : String,
+    val thumbnails : Thumbnail
+)
+
+data class Thumbnail(
+    val small : Small
+)
+
+data class Small(
+    val url: String
 )

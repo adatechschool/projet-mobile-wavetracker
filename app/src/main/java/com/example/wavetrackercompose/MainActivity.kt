@@ -32,6 +32,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import coil.compose.AsyncImage
 import com.example.wavetrackercompose.model.Record
 import com.example.wavetrackercompose.model.ResponseModel
 import com.example.wavetrackercompose.network.SpotsApi
@@ -84,12 +85,12 @@ fun SpotCard(content: Record) {
         .padding(all = 8.dp)
     )
     {
-        Image(
-            painter = painterResource(R.drawable.surfeur_grande_generation_blue_ocean_wave_ai),
+        AsyncImage(
+            model = content.fields.Photos.first().url,
             contentDescription = "surfer image",
             modifier = Modifier
                 // Set image size to 40 dp
-                .size(50.dp)
+                .size(100.dp)
                 // Clip image to be shaped as a circle
                 .clip(CircleShape)
         )
