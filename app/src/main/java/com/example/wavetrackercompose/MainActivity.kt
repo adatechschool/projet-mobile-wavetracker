@@ -1,19 +1,19 @@
+//MainActivity.kt
+
 package com.example.wavetrackercompose
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.wavetrackercompose.ui.theme.WaveTrackerComposeTheme
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -24,7 +24,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Button
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -33,6 +32,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.wavetrackercompose.model.Record
+import com.example.wavetrackercompose.model.ResponseModel
+import com.example.wavetrackercompose.network.SpotsApi
+import kotlinx.coroutines.runBlocking
 
 
 class MainActivity : ComponentActivity() {
@@ -41,9 +44,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             WaveTrackerComposeTheme {
                 val navController = rememberNavController()
+                val spots = runBlocking {
+                    SpotsApi.getSpots()
+                }
                 NavHost(navController = navController, startDestination = "spots") {
                     composable("spots") {
-                        SpotList(Spots.spotsSample) { spotId: Int -> navController.navigate("spot/${spotId}") }
+                        SpotList(spots)
                     }
                     composable(
                         "spot/{spotId}",
@@ -72,11 +78,12 @@ class MainActivity : ComponentActivity() {
 data class Spot(val id: Int, val name: String, val location: String)
 
 @Composable
-fun SpotCard(content: Spot, detailsButtonClick: (Int) -> Unit) {
+fun SpotCard(content: Record) {
     // Add padding around our message
     Row(modifier = Modifier
         .padding(all = 8.dp)
-        .clickable { detailsButtonClick(content.id) }) {
+    )
+    {
         Image(
             painter = painterResource(R.drawable.surfeur_grande_generation_blue_ocean_wave_ai),
             contentDescription = "surfer image",
@@ -92,7 +99,7 @@ fun SpotCard(content: Spot, detailsButtonClick: (Int) -> Unit) {
 
         Column {
             Text(
-                text = content.name,
+                text = content.fields.Destination,
                 color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.titleMedium
             )
@@ -107,7 +114,7 @@ fun SpotCard(content: Spot, detailsButtonClick: (Int) -> Unit) {
                 shadowElevation = 1.dp
             ) {
                 Text(
-                    text = content.location,
+                    text = content.fields.Address,
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
@@ -119,12 +126,14 @@ fun SpotCard(content: Spot, detailsButtonClick: (Int) -> Unit) {
 
 
 @Composable
-fun SpotList(spots: List<Spot>, spotClick: (Int) -> Unit) {
+fun SpotList(spots: ResponseModel) {
     LazyColumn {
-        items(spots) { spot ->
-            SpotCard(detailsButtonClick = spotClick, content = spot)
+        items(spots.records) { spot ->
+            SpotCard(content = spot)
         }
     }
+
+    Log.v("spotList", spots.toString())
 }
 
 
