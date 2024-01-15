@@ -28,6 +28,11 @@ object SpotsApi {
             Log.v("spotsAPI","chanmé")
             Log.v("spotsAPI", response.body().toString())
             // Assurez-vous que ResponseModel a une propriété contenant la liste des spots
+            val updatedRecords = response.body()?.records?.map { record ->
+                record.copy(fields = record.fields.copy(destinationStateCountry = record.fields.destinationStateCountry))
+            } ?: emptyList()
+
+            return ResponseModel(updatedRecords)
         } else {
             // Gérer les erreurs ici (par exemple, log ou lancer une exception)
             Log.v("spotsAPI","error")

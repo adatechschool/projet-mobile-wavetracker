@@ -4,6 +4,7 @@ package com.example.wavetrackercompose
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.GridLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
@@ -14,9 +15,12 @@ import androidx.compose.ui.Modifier
 import com.example.wavetrackercompose.ui.theme.WaveTrackerComposeTheme
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -24,8 +28,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -98,7 +104,13 @@ fun SpotCard(content: Record) {
         // Add a horizontal space between the image and the column
         Spacer(modifier = Modifier.width(10.dp))
 
-        Column {
+        Column(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .padding(10.dp),
+            ) {
+            Spacer(modifier = Modifier.height(10.dp))
+
             Text(
                 text = content.fields.Destination,
                 color = MaterialTheme.colorScheme.primary,
@@ -110,12 +122,13 @@ fun SpotCard(content: Record) {
             Surface(
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier
-                    .padding(all = 4.dp),
+                    .padding(all = 4.dp)
+                    .fillMaxWidth(),
                 tonalElevation = 1.dp,
                 shadowElevation = 1.dp
             ) {
                 Text(
-                    text = content.fields.Address,
+                    text = content.fields.destinationStateCountry,
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
