@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
@@ -45,6 +46,10 @@ import com.example.wavetrackercompose.model.Record
 import com.example.wavetrackercompose.model.ResponseModel
 import com.example.wavetrackercompose.network.SpotsApi
 import kotlinx.coroutines.runBlocking
+
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Star
 
 
 class MainActivity : ComponentActivity() {
@@ -178,39 +183,93 @@ fun SpotList(navController: NavController, spots: ResponseModel) {
 @Composable
 fun SpotDetails(content: Record) {
 
-    AsyncImage(
-        model = content.fields.Photos.first().url,
-        contentDescription = "surfer image",
-        modifier = Modifier
-            // Set image size to 40 dp
-            .size(100.dp)
-            // Clip image to be shaped as a circle
-            .clip(CircleShape)
-    )
 
-    Column {
-        Text(
-            text = content.fields.Destination,
-            color = MaterialTheme.colorScheme.primary,
-            style = MaterialTheme.typography.titleMedium,
-        )
-        // Add a vertical space between the author and message texts
-        Spacer(modifier = Modifier.height(4.dp))
 
-        Surface(
-            shape = MaterialTheme.shapes.medium,
+
+        // Add a horizontal space between the image and the column
+        Spacer(modifier = Modifier.width(10.dp))
+
+        Column(
             modifier = Modifier
-                .padding(all = 4.dp),
-            tonalElevation = 1.dp,
-            shadowElevation = 1.dp
+                .fillMaxHeight()
+                .padding(10.dp),
         ) {
             Text(
-                text = content.fields.Address,
-                style = MaterialTheme.typography.bodyMedium
+                text = content.fields.Destination,
+                color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.titleMedium,
             )
+
+//            Log.d("SpotDetails", "Difficulty Level before StarRating: ${content.fields.difficultyLevel}")
+//            StarRating(rating = content.fields.difficultyLevel, onRatingChanged = { /* Gérez les changements de note ici si nécessaire */ })
+//            Log.d("SpotDetails", "Difficulty Level after StarRating: ${content.fields.difficultyLevel}")
+
+            Row {
+                Text(
+                    text = "${content.fields.difficultyLevel}",
+                    color = MaterialTheme.colorScheme.primary,
+                    style = MaterialTheme.typography.titleMedium,
+                )
+
+                Image(
+                    imageVector = Icons.Default.Star,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(24.dp)
+                        .padding(2.dp)
+                )
+            }
+
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            AsyncImage(
+                model = content.fields.Photos.first().thumbnails.large.url,
+                contentDescription = "surfer image",
+                //contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+            )
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Surface(
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier
+                    .padding(all = 4.dp)
+                    .fillMaxWidth(),
+                tonalElevation = 1.dp,
+                shadowElevation = 1.dp
+            ) {
+                Text(
+                    text = content.fields.destinationStateCountry,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Text(
+                text = "Début de saison : ${content.fields.peakSurfSeasonBegins}",
+                color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.titleMedium,
+            )
+
+            Text(
+                text = "Fin de saison : ${content.fields.peakSurfSeasonEnds}",
+                color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.titleMedium,
+            )
+
+            Text(
+                text = "Surf Break : ${content.fields.surfBreak.first()}",
+                color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.titleMedium,
+            )
+
+
         }
 
-    }
 }
 
 //@Composable
