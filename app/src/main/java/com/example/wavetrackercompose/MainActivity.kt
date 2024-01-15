@@ -109,10 +109,8 @@ fun SpotCard(navController: NavController, content: Record) {
             contentDescription = "surfer image",
             modifier = Modifier
                 // Set image size to 40 dp
-                .size(100.dp)
                 // Clip image to be shaped as a circle
                 .clip(CircleShape)
-        )
 
         // Add a horizontal space between the image and the column
         Spacer(modifier = Modifier.width(10.dp))
@@ -120,7 +118,7 @@ fun SpotCard(navController: NavController, content: Record) {
         Column(
                 modifier = Modifier
                     .fillMaxHeight()
-                    .padding(10.dp),
+                    .padding(10.dp)
             ) {
             Spacer(modifier = Modifier.height(10.dp))
 
