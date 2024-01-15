@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.wavetrackercompose.ui.theme.WaveTrackerComposeTheme
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -25,8 +25,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -50,14 +50,21 @@ class MainActivity : ComponentActivity() {
                 }
                 NavHost(navController = navController, startDestination = "spots") {
                     composable("spots") {
-                        SpotList(spots)
+                        SpotList(navController, spots)
                     }
                     composable(
                         "spot/{spotId}",
-                        arguments = listOf(navArgument("spotId") { type = NavType.IntType })
+                        arguments = listOf(navArgument("spotId") { type = NavType.StringType })
                     ) { backStackEntry ->
-                        val spot = Spots.spotsSample.find { spot -> spot.id == backStackEntry.arguments?.getInt("spotId") }
-                        SpotDetails(spot!!)
+                        val spotId = backStackEntry.arguments?.getString("spotId")
+                        val spot = spots.records.find { it.id == spotId }
+
+                        if (!spots.records.isNullOrEmpty() && spot != null) {
+                            SpotDetails(spot)
+                        } else {
+                            // Gérer le cas où le spot n'est pas trouvé ou la liste de spots est vide
+                            Text("Spot not found")
+                        }
                     }
 //                    composable("user") { User(/*...*/) }
                     /*...*/
@@ -79,10 +86,14 @@ class MainActivity : ComponentActivity() {
 data class Spot(val id: Int, val name: String, val location: String)
 
 @Composable
-fun SpotCard(content: Record) {
+fun SpotCard(navController: NavController, content: Record) {
     // Add padding around our message
     Row(modifier = Modifier
         .padding(all = 8.dp)
+        .clickable {
+            // Naviguer vers les détails du spot lorsque l'élément est cliqué
+            navController.navigate("spot/${content.id}")
+        }
     )
     {
         AsyncImage(
@@ -102,7 +113,7 @@ fun SpotCard(content: Record) {
             Text(
                 text = content.fields.Destination,
                 color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.titleMedium
+                style = MaterialTheme.typography.titleMedium,
             )
             // Add a vertical space between the author and message texts
             Spacer(modifier = Modifier.height(4.dp))
@@ -127,10 +138,10 @@ fun SpotCard(content: Record) {
 
 
 @Composable
-fun SpotList(spots: ResponseModel) {
+fun SpotList(navController: NavController, spots: ResponseModel) {
     LazyColumn {
         items(spots.records) { spot ->
-            SpotCard(content = spot)
+            SpotCard(navController, content = spot)
         }
     }
 
@@ -152,12 +163,23 @@ fun SpotList(spots: ResponseModel) {
 //}
 
 @Composable
-fun SpotDetails(content: Spot) {
+fun SpotDetails(content: Record) {
+
+    AsyncImage(
+        model = content.fields.Photos.first().url,
+        contentDescription = "surfer image",
+        modifier = Modifier
+            // Set image size to 40 dp
+            .size(100.dp)
+            // Clip image to be shaped as a circle
+            .clip(CircleShape)
+    )
+
     Column {
         Text(
-            text = content.name,
+            text = content.fields.Destination,
             color = MaterialTheme.colorScheme.primary,
-            style = MaterialTheme.typography.titleMedium
+            style = MaterialTheme.typography.titleMedium,
         )
         // Add a vertical space between the author and message texts
         Spacer(modifier = Modifier.height(4.dp))
@@ -170,7 +192,7 @@ fun SpotDetails(content: Spot) {
             shadowElevation = 1.dp
         ) {
             Text(
-                text = content.location,
+                text = content.fields.Address,
                 style = MaterialTheme.typography.bodyMedium
             )
         }
