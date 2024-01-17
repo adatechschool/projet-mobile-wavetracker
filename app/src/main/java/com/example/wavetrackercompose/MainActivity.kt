@@ -4,7 +4,6 @@ package com.example.wavetrackercompose
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.GridLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
@@ -15,12 +14,14 @@ import androidx.compose.ui.Modifier
 import com.example.wavetrackercompose.ui.theme.WaveTrackerComposeTheme
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -28,12 +29,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavType
@@ -48,8 +46,24 @@ import com.example.wavetrackercompose.network.SpotsApi
 import kotlinx.coroutines.runBlocking
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.outlined.Star
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.semantics.Role.Companion.Button
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.findNavController
+import com.example.wavetrackercompose.navigation_bottomnavbar.screens.AddNewSpot
+import com.example.wavetrackercompose.navigation_bottomnavbar.screens.navigation.Screens
 
 
 class MainActivity : ComponentActivity() {
@@ -61,10 +75,14 @@ class MainActivity : ComponentActivity() {
                 val spots = runBlocking {
                     SpotsApi.getSpots()
                 }
-                NavHost(navController = navController, startDestination = "spots") {
+                // Routes
+                NavHost(navController = navController, startDestination = "spots")
+                // Route de la page d'accueil qui affiche la liste des spots
+                    {
                     composable("spots") {
                         SpotList(navController, spots)
                     }
+                        // Route pour afficher le détail d'un spot
                     composable(
                         "spot/{spotId}",
                         arguments = listOf(navArgument("spotId") { type = NavType.StringType })
@@ -79,23 +97,17 @@ class MainActivity : ComponentActivity() {
                             Text("Spot not found")
                         }
                     }
-//                    composable("user") { User(/*...*/) }
-                    /*...*/
+                        // Route pour aller sur la page de création d'un nouveau spot
+                    composable(
+                        "AddNewSpot"
+                    ) {
+                        AddNewSpot(navController)
+                    }
                 }
-
-                // A surface container using the 'background' color from the theme
-//                Surface(
-//                    modifier = Modifier.fillMaxSize(),
-//                    color = MaterialTheme.colorScheme.background
-//                ) {
-//                    Spot(Spots.spotsSample)
-//
-//                }
             }
         }
     }
 }
-
 data class Spot(val id: Int, val name: String, val location: String)
 
 @Composable
@@ -116,7 +128,7 @@ fun SpotCard(navController: NavController, content: Record) {
                 // Set image size to 40 dp
                 // Clip image to be shaped as a circle
                 .clip(CircleShape)
-
+        )
         // Add a horizontal space between the image and the column
         Spacer(modifier = Modifier.width(10.dp))
 
@@ -125,67 +137,62 @@ fun SpotCard(navController: NavController, content: Record) {
                     .fillMaxHeight()
                     .padding(10.dp)
             ) {
-            Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(10.dp))
 
-            Text(
-                text = content.fields.Destination,
-                color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.titleMedium,
-            )
-            // Add a vertical space between the author and message texts
-            Spacer(modifier = Modifier.height(4.dp))
-
-            Surface(
-                shape = MaterialTheme.shapes.medium,
-                modifier = Modifier
-                    .padding(all = 4.dp)
-                    .fillMaxWidth(),
-                tonalElevation = 1.dp,
-                shadowElevation = 1.dp
-            ) {
                 Text(
-                    text = content.fields.destinationStateCountry,
-                    style = MaterialTheme.typography.bodyMedium
+                    text = content.fields.Destination,
+                    color = MaterialTheme.colorScheme.primary,
+                    style = MaterialTheme.typography.titleMedium,
                 )
-            }
+                // Add a vertical space between the author and message texts
+                Spacer(modifier = Modifier.height(4.dp))
 
+                Surface(
+                    shape = MaterialTheme.shapes.medium,
+                    modifier = Modifier
+                        .padding(all = 4.dp)
+                        .fillMaxWidth(),
+                    tonalElevation = 1.dp,
+                    shadowElevation = 1.dp
+                ) {
+                    Text(
+                        text = content.fields.destinationStateCountry,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
         }
     }
-
 }
-
 
 @Composable
 fun SpotList(navController: NavController, spots: ResponseModel) {
+    // Contenu de la page
     LazyColumn {
         items(spots.records) { spot ->
             SpotCard(navController, content = spot)
         }
     }
-
+    // Style du bouton
+    Box(
+        contentAlignment = Alignment.BottomCenter,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Button(onClick = {
+            navController.navigate("AddNewSpot")
+        }) {
+            Icon(
+                imageVector = Icons.Filled.Add,
+                contentDescription = null,
+                modifier = Modifier.padding(end = 8.dp)
+            )
+            Text("Add spot")
+        }
+    }
     Log.v("spotList", spots.toString())
 }
 
-
-//@Composable
-//fun SpotList(detailsButtonClick: () -> Unit, userButtonClick: () -> Unit) {
-// Column {
-//   Button(onClick = detailsButtonClick) {
-//       Text(text = "Détails")
-//  }
-//
-//  Button(onClick = userButtonClick) {
-//      Text(text = "User")
-//    }
-// }
-//}
-
 @Composable
 fun SpotDetails(content: Record) {
-
-
-
-
         // Add a horizontal space between the image and the column
         Spacer(modifier = Modifier.width(10.dp))
 
@@ -219,7 +226,6 @@ fun SpotDetails(content: Record) {
                         .padding(2.dp)
                 )
             }
-
 
             Spacer(modifier = Modifier.height(10.dp))
 
@@ -266,14 +272,5 @@ fun SpotDetails(content: Record) {
                 color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.titleMedium,
             )
-
-
         }
-
 }
-
-//@Composable
-//fun User() {
-//    Text(text = "User")
-//}
-
