@@ -49,6 +49,8 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import coil.compose.rememberAsyncImagePainter
+import coil.compose.rememberImagePainter
 import com.example.wavetrackercompose.model.SpotDetails
 import com.example.wavetrackercompose.model.SpotList
 
@@ -115,8 +117,11 @@ fun SpotCard(navController: NavController, content: Spots) {
         }
     )
     {
-        AsyncImage(
-            model = content.smallThumbnail,
+
+        Log.v("spotURL", "Error response: ${content.smallThumbnail}")
+
+        Image(
+            painter = rememberAsyncImagePainter(content.smallThumbnail),
             contentDescription = "surfer image",
             modifier = Modifier
                 // Set image size to 40 dp
@@ -275,8 +280,8 @@ fun SpotDetails(content: SpotDetails) {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        AsyncImage(
-            model = content.largeThumbnail,
+        Image(
+            painter = rememberAsyncImagePainter(content.largeThumbnail),
             contentDescription = "surfer image",
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
