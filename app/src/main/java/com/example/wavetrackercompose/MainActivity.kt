@@ -4,6 +4,7 @@ package com.example.wavetrackercompose
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.GridLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
@@ -19,7 +20,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -31,10 +31,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavType
@@ -51,26 +54,14 @@ import kotlinx.coroutines.runBlocking
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.semantics.Role.Companion.Button
-import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.findNavController
-import com.example.wavetrackercompose.navigation_bottomnavbar.screens.AddNewSpot
-import com.example.wavetrackercompose.navigation_bottomnavbar.screens.navigation.Screens
-import androidx.compose.material.icons.outlined.Star
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import com.example.wavetrackercompose.navigation_bottomnavbar.screens.AddNewSpot
+import com.example.wavetrackercompose.navigation_bottomnavbar.screens.navigation.Screens
 
 
 class MainActivity : ComponentActivity() {
@@ -82,10 +73,13 @@ class MainActivity : ComponentActivity() {
                 val spots = runBlocking {
                     SpotsApi.getSpots()
                 }
+                // Routes
                 NavHost(navController = navController, startDestination = "spots") {
+                    // Route de la page d'accueil qui liste tous les spots.
                     composable("spots") {
                         SpotList(navController, spots)
                     }
+                    // Route qui affiche le détail d'un spot.
                     composable(
                         "spot/{spotId}",
                         arguments = listOf(navArgument("spotId") { type = NavType.StringType })
@@ -100,7 +94,7 @@ class MainActivity : ComponentActivity() {
                             Text("Spot not found")
                         }
                     }
-                        // Route pour aller sur la page de création d'un nouveau spot
+                    // Route pour aller sur la page de création d'un nouveau spot
                     composable(
                         "AddNewSpot"
                     ) {
@@ -111,6 +105,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 data class Spot(val id: Int, val name: String, val location: String)
 
 @Composable
@@ -129,23 +124,15 @@ fun SpotCard(navController: NavController, content: Record) {
             contentDescription = "surfer image",
             modifier = Modifier
                 // Set image size to 40 dp
+                .size(100.dp)
                 // Clip image to be shaped as a circle
                 .clip(CircleShape)
         )
+
         // Add a horizontal space between the image and the column
         Spacer(modifier = Modifier.width(10.dp))
 
         Column(
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .padding(10.dp)
-            ) {
-                Spacer(modifier = Modifier.height(10.dp))
-
-                Text(
-                    text = content.fields.Destination,
-                    color = MaterialTheme.colorScheme.primary,
-                    style = MaterialTheme.typography.titleMedium,
             modifier = Modifier
                 .fillMaxHeight()
                 .padding(10.dp),
@@ -172,208 +159,195 @@ fun SpotCard(navController: NavController, content: Record) {
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(horizontal = 8.dp),
                 )
-                // Add a vertical space between the author and message texts
-                Spacer(modifier = Modifier.height(4.dp))
+            }
 
-                Surface(
-                    shape = MaterialTheme.shapes.medium,
-                    modifier = Modifier
-                        .padding(all = 4.dp)
-                        .fillMaxWidth(),
-                    tonalElevation = 1.dp,
-                    shadowElevation = 1.dp
-                ) {
-                    Text(
-                        text = content.fields.destinationStateCountry,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                }
         }
     }
+
 }
+
 
 @Composable
 fun SpotList(navController: NavController, spots: ResponseModel) {
-    // Contenu de la page
-    LazyColumn {
-        items(spots.records) { spot ->
-            SpotCard(navController, content = spot)
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp),
-            ) {
-                Text(
-                    text = "WaveTracker",
-                    color = MaterialTheme.colorScheme.primary,
-                    style = MaterialTheme.typography.headlineLarge,
-                    modifier = Modifier
-                        .background(
-                            color = Color(0xFF30dcdc),
-                            shape = RoundedCornerShape(16.dp)
-                        )
-                        .padding(20.dp)
-                        .padding(horizontal = 60.dp)
-                        .align(Alignment.CenterHorizontally)
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+    ) {
+        Text(
+            text = "WaveTracker",
+            color = MaterialTheme.colorScheme.primary,
+            style = MaterialTheme.typography.headlineLarge,
+            modifier = Modifier
+                .background(
+                    color = Color(0xFF30dcdc),
+                    shape = RoundedCornerShape(16.dp)
                 )
+                .padding(20.dp)
+                .padding(horizontal = 60.dp)
+                .align(Alignment.CenterHorizontally)
+        )
 
-                Text(
-                    text = "SpotList",
-                    color = MaterialTheme.colorScheme.primary,
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 30.dp)
-                        .align(Alignment.CenterHorizontally)
-                )
+        Text(
+            text = "SpotList",
+            color = MaterialTheme.colorScheme.primary,
+            style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 30.dp)
+                .align(Alignment.CenterHorizontally)
+        )
 
-                LazyColumn {
-                    items(spots.records) { spot ->
-                        SpotCard(navController, content = spot)
-                    }
-                }
+        LazyColumn {
+            items(spots.records) { spot ->
+                SpotCard(navController, content = spot)
             }
-            // Style du bouton
-            Box(
-                contentAlignment = Alignment.BottomCenter,
-                modifier = Modifier.fillMaxSize()
-            ) {
-                Button(onClick = {
-                    navController.navigate("AddNewSpot")
-                }) {
-                    Icon(
-                        imageVector = Icons.Filled.Add,
-                        contentDescription = null,
-                        modifier = Modifier.padding(end = 8.dp)
-                    )
-                    Text("Add spot")
-                }
-            }
-            Log.v("spotList", spots.toString())
         }
+    }
+    Box(
+        contentAlignment = Alignment.BottomCenter,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Button(onClick = {
+            navController.navigate("AddNewSpot")
+        }) {
+            Icon(
+                imageVector = Icons.Filled.Add,
+                contentDescription = null,
+                modifier = Modifier.padding(end = 8.dp)
+            )
+            Text("Add spot")
+        }
+    }
+    Log.v("spotList", spots.toString())
+}
 
-        @Composable
-        fun SpotDetails(content: Record) {
-            // Add a horizontal space between the image and the column
-            Spacer(modifier = Modifier.width(10.dp))
+
+//@Composable
+//fun SpotList(detailsButtonClick: () -> Unit, userButtonClick: () -> Unit) {
+// Column {
+//   Button(onClick = detailsButtonClick) {
+//       Text(text = "Détails")
+//  }
+//
+//  Button(onClick = userButtonClick) {
+//      Text(text = "User")
+//    }
+// }
+//}
+
+@Composable
+fun SpotDetails(content: Record) {
 
 
-            // Add a horizontal space between the image and the column
-            Spacer(modifier = Modifier.width(10.dp))
+    // Add a horizontal space between the image and the column
+    Spacer(modifier = Modifier.width(10.dp))
 
-            Column(
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .padding(10.dp),
-            ) {
+    Column(
+        modifier = Modifier
+            .fillMaxHeight()
+            .padding(10.dp),
+    ) {
 
 
-                Text(
-                    text = content.fields.Destination,
-                    color = MaterialTheme.colorScheme.primary,
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
-                )
+        Text(
+            text = content.fields.Destination,
+            color = MaterialTheme.colorScheme.primary,
+            style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+        )
 
 //            Log.d("SpotDetails", "Difficulty Level before StarRating: ${content.fields.difficultyLevel}")
 //            StarRating(rating = content.fields.difficultyLevel, onRatingChanged = { /* Gérez les changements de note ici si nécessaire */ })
 //            Log.d("SpotDetails", "Difficulty Level after StarRating: ${content.fields.difficultyLevel}")
 
-                Spacer(modifier = Modifier.padding(5.dp))
+        Spacer(modifier = Modifier.padding(5.dp))
 
-                Row(
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
-                ) {
+        Row(
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+        ) {
 /*                Text(
                     text = "${content.fields.difficultyLevel}",
                     color = MaterialTheme.colorScheme.primary,
                     style = MaterialTheme.typography.titleMedium,
                 )*/
 
-                    val difficultyLevel = content.fields.difficultyLevel ?: 0
+            val difficultyLevel = content.fields.difficultyLevel ?: 0
 
-                    // boucle pour générer les étoiles
-                    repeat(difficultyLevel) {
-                        Image(
-                            imageVector = Icons.Default.Star,
-                            contentDescription = null,
-                            modifier = Modifier
-                                .size(24.dp)
-                                .padding(2.dp)
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(10.dp))
-
-                Spacer(modifier = Modifier.height(10.dp))
-
-                AsyncImage(
-                    model = content.fields.Photos.first().thumbnails.large.url,
-                    contentDescription = "surfer image",
+            // boucle pour générer les étoiles
+            repeat(difficultyLevel) {
+                Image(
+                    imageVector = Icons.Default.Star,
+                    contentDescription = null,
                     modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
+                        .size(24.dp)
+                        .padding(2.dp)
                 )
+            }
+        }
 
-                Spacer(modifier = Modifier.height(10.dp))
 
-                Surface(
-                    shape = MaterialTheme.shapes.medium,
-                    modifier = Modifier
-                        .padding(all = 4.dp)
-                        .align(Alignment.CenterHorizontally),
-                    tonalElevation = 1.dp,
-                    shadowElevation = 1.dp
-                ) {
-                    Text(
-                        text = content.fields.destinationStateCountry,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                }
+        Spacer(modifier = Modifier.height(10.dp))
 
-                Surface(
-                    shape = MaterialTheme.shapes.medium,
-                    modifier = Modifier
-                        .padding(all = 4.dp)
-                        .align(Alignment.CenterHorizontally),
-                    tonalElevation = 1.dp,
-                    shadowElevation = 1.dp
-                ) {
+        AsyncImage(
+            model = content.fields.Photos.first().thumbnails.large.url,
+            contentDescription = "surfer image",
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+        )
 
-                    Column {
+        Spacer(modifier = Modifier.height(10.dp))
 
-                        Text(
-                            text = "Surf Break : ${content.fields.surfBreak.first()}",
-                            color = MaterialTheme.colorScheme.primary,
-                            style = MaterialTheme.typography.bodyMedium,
-                            fontStyle = FontStyle.Italic,
-                            fontWeight = FontWeight.Normal,
-                        )
-                    }
-                }
+        Surface(
+            shape = MaterialTheme.shapes.medium,
+            modifier = Modifier
+                .padding(all = 4.dp)
+                .align(Alignment.CenterHorizontally),
+            tonalElevation = 1.dp,
+            shadowElevation = 1.dp
+        ) {
+            Text(
+                text = content.fields.destinationStateCountry,
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
 
-                Spacer(modifier = Modifier.height(10.dp))
+        Surface(
+            shape = MaterialTheme.shapes.medium,
+            modifier = Modifier
+                .padding(all = 4.dp)
+                .align(Alignment.CenterHorizontally),
+            tonalElevation = 1.dp,
+            shadowElevation = 1.dp
+        ) {
 
-                Surface(
-                    shape = MaterialTheme.shapes.medium,
-                    modifier = Modifier
-                        .padding(all = 4.dp)
-                        .fillMaxWidth(),
-                    tonalElevation = 1.dp,
-                    shadowElevation = 1.dp
-                ) {
+            Column {
 
-                    Column {
+                Text(
+                    text = "Surf Break : ${content.fields.surfBreak.first()}",
+                    color = MaterialTheme.colorScheme.primary,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontStyle = FontStyle.Italic,
+                    fontWeight = FontWeight.Normal,
+                )
+            }
+        }
 
-                        Text(
-                            text = "Surf Break : ${content.fields.surfBreak.first()}",
-                            color = MaterialTheme.colorScheme.primary,
-                            style = MaterialTheme.typography.titleMedium,
-                        )
-                    }
-                }
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Surface(
+            shape = MaterialTheme.shapes.medium,
+            modifier = Modifier
+                .padding(all = 4.dp)
+                .fillMaxWidth(),
+            tonalElevation = 1.dp,
+            shadowElevation = 1.dp
+        ) {
+
+            Column {
+
 
                 Text(
                     text = "Début de saison : ${content.fields.peakSurfSeasonBegins}",
@@ -393,7 +367,7 @@ fun SpotList(navController: NavController, spots: ResponseModel) {
                 )
             }
         }
+
     }
-}
-    }
+
 }
