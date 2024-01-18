@@ -1,8 +1,14 @@
 package com.example.wavetrackercompose.navigation_bottomnavbar.screens
 
+import android.app.Activity
+import android.content.Intent
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -23,7 +29,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -35,7 +43,19 @@ import androidx.navigation.compose.rememberNavController
 // (navigateUp() renvoie vers l'écran précédent).
 @Composable
 fun AddNewSpot(navController: NavHostController) {
-    var testname by rememberSaveable { mutableStateOf("") }
+    var surfSpotName by rememberSaveable { mutableStateOf("") }
+    var locationName by rememberSaveable { mutableStateOf("") }
+    var seasonStart by rememberSaveable { mutableStateOf("") }
+    var seasonEnds by rememberSaveable { mutableStateOf("") }
+    val imagePicker = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) {result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            // Traiter l''image sélectionnée.
+            val imageUri = result.data?.data
+        }
+    }
+
     // Contenu de la page
     Column(
         modifier = Modifier
@@ -44,28 +64,94 @@ fun AddNewSpot(navController: NavHostController) {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Text(
-            modifier = Modifier.size(16.dp),
-            text = "Add a new surf spot"
+            text = "Ajouter un nouveau spot de surf",
+            style = TextStyle(
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold
+            )
         )
+
+        Spacer(modifier = Modifier.padding(5.dp))
+        // Champ de saisie pour le nom du spot
         Text(
-            text = "Surf spot name"
+            text = "Nom du spot: "
         )
         TextField(
             modifier = Modifier.fillMaxWidth(),
-            value = testname,
-            onValueChange = { testname = it },
+            value = surfSpotName,
+            onValueChange = { surfSpotName = it },
             placeholder = { Text(text = "ex: Pointe de Lizay") }
         )
+
+        Spacer(modifier = Modifier.padding(5.dp))
+        // Champ de saisie pour la localisation.
+        Text(
+            text = "Localisation: "
+        )
+        TextField(
+            modifier = Modifier.fillMaxHeight(),
+            value = locationName,
+            onValueChange = { locationName = it },
+            placeholder = { Text(text = "ex: Le Cap, France") }
+        )
+
+        Spacer(modifier = Modifier.padding(5.dp))
+        // Champ de saisie pour le début de la saison.
+        Text(
+            text = "Début de saison: "
+        )
+        TextField(
+            modifier = Modifier.fillMaxHeight(),
+            value = seasonStart,
+            onValueChange = { seasonStart = it },
+            placeholder = { Text(text = "ex: 2024-08-23") }
+        )
+
+        Spacer(modifier = Modifier.padding(5.dp))
+        // Champ de saisie pour la fin de la saison.
+        Text(
+            text = "Fin de saison: "
+        )
+        TextField(
+            modifier = Modifier.fillMaxHeight(),
+            value = seasonEnds,
+            onValueChange = { seasonEnds = it },
+            placeholder = { Text(text = "ex: 2024-10-17") }
+        )
+
+        Spacer(modifier = Modifier.padding(5.dp))
+        // Bouton pour uploader une image.
+        Button(onClick = {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            imagePicker.launch(intent)
+        }) {
+            Text(
+                text = "Chargez une image"
+            )
+        }
     }
-        // Style du bouton
+
+        // Bouton de retour à la page d'accueil
         Box(
-            contentAlignment = Alignment.BottomCenter,
+            contentAlignment = Alignment.BottomStart,
             modifier = Modifier.fillMaxSize()
         ) {
             Button(onClick = {
                 navController.navigateUp()
             }) {
-                Text(text = "Home")
+                Text(text = "Accueil")
             }
         }
-    }
+        // Bouton de validation du formulaire
+        Box(
+            contentAlignment = Alignment.BottomEnd,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Button(onClick = {
+                navController.navigateUp()
+            }) {
+                Text(text = "Ajouter")
+            }
+        }
+}

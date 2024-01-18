@@ -208,6 +208,7 @@ fun SpotList(navController: NavController, spots: ResponseModel) {
         contentAlignment = Alignment.BottomCenter,
         modifier = Modifier.fillMaxSize()
     ) {
+        // Bouton pour ajouter un nouveau spot
         Button(onClick = {
             navController.navigate("AddNewSpot")
         }) {
@@ -216,7 +217,7 @@ fun SpotList(navController: NavController, spots: ResponseModel) {
                 contentDescription = null,
                 modifier = Modifier.padding(end = 8.dp)
             )
-            Text("Add spot")
+            Text("Ajouter")
         }
     }
     Log.v("spotList", spots.toString())
