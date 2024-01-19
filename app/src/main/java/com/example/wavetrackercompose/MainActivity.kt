@@ -61,6 +61,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import com.example.wavetrackercompose.navigation_bottomnavbar.screens.AddNewSpot
+import com.example.wavetrackercompose.navigation_bottomnavbar.screens.BackToHomeButton
 import com.example.wavetrackercompose.navigation_bottomnavbar.screens.navigation.Screens
 
 
@@ -88,7 +89,7 @@ class MainActivity : ComponentActivity() {
                         val spot = spots.records.find { it.id == spotId }
 
                         if (!spots.records.isNullOrEmpty() && spot != null) {
-                            SpotDetails(spot)
+                            SpotDetails(navController, spot)
                         } else {
                             // Gérer le cas où le spot n'est pas trouvé ou la liste de spots est vide
                             Text("Spot not found")
@@ -238,7 +239,7 @@ fun SpotList(navController: NavController, spots: ResponseModel) {
 //}
 
 @Composable
-fun SpotDetails(content: Record) {
+fun SpotDetails(navController: NavController, content: Record) {
 
 
     // Add a horizontal space between the image and the column
@@ -368,7 +369,7 @@ fun SpotDetails(content: Record) {
                 )
             }
         }
+        // Bouton de retour à la page d'accueil
+        BackToHomeButton(navController)
 
-    }
-
-}
+}}
