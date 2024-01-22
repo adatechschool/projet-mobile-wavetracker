@@ -267,11 +267,14 @@ fun SpotList(navController: NavController, spots: SpotList) {
                 .align(Alignment.CenterHorizontally)
         )
 
-        LazyColumn {
+        LazyColumn(
+            modifier = Modifier
+                .weight(1f)
+                .padding(bottom = 50.dp) // Ajoutez l'espacement au bas de la liste
+        ) {
             items(spots.spotList) { spot ->
                 SpotCard(navController, content = spot)
             }
-
         }
 
 
