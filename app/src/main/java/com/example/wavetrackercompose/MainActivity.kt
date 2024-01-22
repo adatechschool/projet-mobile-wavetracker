@@ -4,7 +4,6 @@ package com.example.wavetrackercompose
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.GridLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
@@ -16,7 +15,6 @@ import com.example.wavetrackercompose.ui.theme.WaveTrackerComposeTheme
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,13 +29,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavType
@@ -45,16 +40,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import coil.compose.AsyncImage
-import com.example.wavetrackercompose.model.Record
-import com.example.wavetrackercompose.model.ResponseModel
+import com.example.wavetrackercompose.model.Spots
 import com.example.wavetrackercompose.network.SpotsApi
 import kotlinx.coroutines.runBlocking
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.ui.graphics.Color
@@ -62,7 +54,9 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import com.example.wavetrackercompose.navigation_bottomnavbar.screens.AddNewSpot
 import com.example.wavetrackercompose.navigation_bottomnavbar.screens.BackToHomeButton
-import com.example.wavetrackercompose.navigation_bottomnavbar.screens.navigation.Screens
+import coil.compose.rememberAsyncImagePainter
+import com.example.wavetrackercompose.model.SpotDetails
+import com.example.wavetrackercompose.model.SpotList
 
 
 class MainActivity : ComponentActivity() {
@@ -86,13 +80,19 @@ class MainActivity : ComponentActivity() {
                         arguments = listOf(navArgument("spotId") { type = NavType.StringType })
                     ) { backStackEntry ->
                         val spotId = backStackEntry.arguments?.getString("spotId")
-                        val spot = spots.records.find { it.id == spotId }
 
-                        if (!spots.records.isNullOrEmpty() && spot != null) {
-                            SpotDetails(navController, spot)
+
+                        if (spotId != null) {
+                            val spot = runBlocking {
+                                SpotsApi.getSpotDetails(spotId)
+                            }
+
+                            if (spot != null) {
+                                SpotDetails(navController, spot)
+                            }
                         } else {
-                            // Gérer le cas où le spot n'est pas trouvé ou la liste de spots est vide
-                            Text("Spot not found")
+                            // Gérer le cas où l'ID du spot est nul
+                            Text("Invalid spot ID")
                         }
                     }
                     // Route pour aller sur la page de création d'un nouveau spot
@@ -107,10 +107,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-data class Spot(val id: Int, val name: String, val location: String)
+//data class Spot(val id: Int, val name: String, val location: String)
 
 @Composable
-fun SpotCard(navController: NavController, content: Record) {
+fun SpotCard(navController: NavController, content: Spots) {
     // Add padding around our message
     Row(modifier = Modifier
         .padding(all = 8.dp)
@@ -120,8 +120,11 @@ fun SpotCard(navController: NavController, content: Record) {
         }
     )
     {
-        AsyncImage(
-            model = content.fields.Photos.first().url,
+
+        Log.v("spotURL", "Error response: ${content.smallThumbnail}")
+
+        Image(
+            painter = rememberAsyncImagePainter(content.smallThumbnail),
             contentDescription = "surfer image",
             modifier = Modifier
                 // Set image size to 40 dp
@@ -141,7 +144,7 @@ fun SpotCard(navController: NavController, content: Record) {
             Spacer(modifier = Modifier.height(10.dp))
 
             Text(
-                text = content.fields.Destination,
+                text = content.destination,
                 color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.titleMedium,
             )
@@ -156,7 +159,7 @@ fun SpotCard(navController: NavController, content: Record) {
                 shadowElevation = 1.dp
             ) {
                 Text(
-                    text = content.fields.destinationStateCountry,
+                    text = content.address,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(horizontal = 8.dp),
                 )
@@ -169,7 +172,7 @@ fun SpotCard(navController: NavController, content: Record) {
 
 
 @Composable
-fun SpotList(navController: NavController, spots: ResponseModel) {
+fun SpotList(navController: NavController, spots: SpotList) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -200,7 +203,7 @@ fun SpotList(navController: NavController, spots: ResponseModel) {
         )
 
         LazyColumn {
-            items(spots.records) { spot ->
+            items(spots.spotList) { spot ->
                 SpotCard(navController, content = spot)
             }
         }
@@ -239,7 +242,7 @@ fun SpotList(navController: NavController, spots: ResponseModel) {
 //}
 
 @Composable
-fun SpotDetails(navController: NavController, content: Record) {
+fun SpotDetails(navController: NavController, content : SpotDetails) {
 
 
     // Add a horizontal space between the image and the column
@@ -253,12 +256,12 @@ fun SpotDetails(navController: NavController, content: Record) {
 
 
         Text(
-            text = content.fields.Destination,
-            color = MaterialTheme.colorScheme.primary,
-            style = MaterialTheme.typography.titleLarge,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-        )
+                text = content.destination,
+                color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+            )
 
 //            Log.d("SpotDetails", "Difficulty Level before StarRating: ${content.fields.difficultyLevel}")
 //            StarRating(rating = content.fields.difficultyLevel, onRatingChanged = { /* Gérez les changements de note ici si nécessaire */ })
@@ -276,25 +279,27 @@ fun SpotDetails(navController: NavController, content: Record) {
                     style = MaterialTheme.typography.titleMedium,
                 )*/
 
-            val difficultyLevel = content.fields.difficultyLevel ?: 0
+            val difficultyLevel = content.difficultyLevel
 
             // boucle pour générer les étoiles
-            repeat(difficultyLevel) {
-                Image(
-                    imageVector = Icons.Default.Star,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(24.dp)
-                        .padding(2.dp)
-                )
+            if (difficultyLevel != null) {
+                repeat(difficultyLevel) {
+                    Image(
+                        imageVector = Icons.Default.Star,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(24.dp)
+                            .padding(2.dp)
+                    )
+                }
             }
         }
 
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        AsyncImage(
-            model = content.fields.Photos.first().thumbnails.large.url,
+        Image(
+            painter = rememberAsyncImagePainter(content.largeThumbnail),
             contentDescription = "surfer image",
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
@@ -311,7 +316,7 @@ fun SpotDetails(navController: NavController, content: Record) {
             shadowElevation = 1.dp
         ) {
             Text(
-                text = content.fields.destinationStateCountry,
+                text = content.address,
                 style = MaterialTheme.typography.bodyMedium
             )
         }
@@ -328,7 +333,7 @@ fun SpotDetails(navController: NavController, content: Record) {
             Column {
 
                 Text(
-                    text = "Surf Break : ${content.fields.surfBreak.first()}",
+                    text = "Surf Break : ${content.surfBreak}",
                     color = MaterialTheme.colorScheme.primary,
                     style = MaterialTheme.typography.bodyMedium,
                     fontStyle = FontStyle.Italic,
@@ -352,7 +357,7 @@ fun SpotDetails(navController: NavController, content: Record) {
 
 
                 Text(
-                    text = "Début de saison : ${content.fields.peakSurfSeasonBegins}",
+                    text = "Début de saison : ${content.peakSurfSeasonBegins}",
                     color = Color(0, 200, 0),
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
@@ -361,7 +366,7 @@ fun SpotDetails(navController: NavController, content: Record) {
 
 
                 Text(
-                    text = "Fin de saison : ${content.fields.peakSurfSeasonEnds}",
+                    text = "Fin de saison : ${content.peakSurfSeasonEnds}",
                     color = Color.Red,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
