@@ -154,6 +154,5 @@ fun AddNewSpot(navController: NavHostController) {
             Text(text = "Valider")
         }
     }
-
         BackToHomeButton(navController)
 }
