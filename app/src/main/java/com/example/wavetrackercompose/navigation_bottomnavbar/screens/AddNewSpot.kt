@@ -2,23 +2,31 @@ package com.example.wavetrackercompose.navigation_bottomnavbar.screens
 
 import android.app.Activity
 import android.content.Intent
+import android.text.style.BackgroundColorSpan
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScopeInstance.align
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScopeInstance.align
+import androidx.compose.foundation.layout.FlowColumnScopeInstance.align
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -77,6 +85,7 @@ fun AddNewSpot(navController: NavHostController) {
     Column(
         modifier = Modifier
             .padding(8.dp, 8.dp)
+    // reste à centrer le formulaire
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -94,7 +103,7 @@ fun AddNewSpot(navController: NavHostController) {
             text = "Nom du spot: "
         )
         TextField(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxHeight(),
             value = surfSpotName,
             onValueChange = { surfSpotName = it },
             placeholder = { Text(text = "ex: Pointe de Lizay") }
@@ -150,8 +159,13 @@ fun AddNewSpot(navController: NavHostController) {
         Spacer(modifier = Modifier.padding(2.dp))
         // Bouton de validation du formulaire
         Button(onClick = {
-            navController.navigateUp()
-        }) {
+            navController.navigateUp()},
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(android.graphics.Color.parseColor("#00561b")),
+                contentColor = Color.White),
+            modifier = Modifier
+                .width(170.dp)
+        ) {
             Text(text = "Valider")
         }
     }

@@ -258,7 +258,7 @@ fun SpotList(navController: NavController, spots: SpotList) {
         )
 
         Text(
-            text = "SpotList",
+            text = "Spots de surf",
             color = MaterialTheme.colorScheme.primary,
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
