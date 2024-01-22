@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -41,6 +42,21 @@ import androidx.navigation.compose.rememberNavController
 
 // Fonction qui permet de naviguer vers l'écran d'accueil
 // (navigateUp() renvoie vers l'écran précédent).
+@Composable
+fun BackToHomeButton(navController: NavController) {
+    Box(
+        contentAlignment = Alignment.BottomCenter,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Button(onClick = {
+            navController.navigateUp()
+        }) {
+            Text(text = "Retour à l'accueil")
+        }
+    }
+}
+
+
 @Composable
 fun AddNewSpot(navController: NavHostController) {
     var surfSpotName by rememberSaveable { mutableStateOf("") }
@@ -130,28 +146,14 @@ fun AddNewSpot(navController: NavHostController) {
                 text = "Chargez une image"
             )
         }
+        Spacer(modifier = Modifier.padding(2.dp))
+        // Bouton de validation du formulaire
+        Button(onClick = {
+            navController.navigateUp()
+        }) {
+            Text(text = "Valider")
+        }
     }
 
-        // Bouton de retour à la page d'accueil
-        Box(
-            contentAlignment = Alignment.BottomStart,
-            modifier = Modifier.fillMaxSize()
-        ) {
-            Button(onClick = {
-                navController.navigate("spots")
-            }) {
-                Text(text = "Accueil")
-            }
-        }
-        // Bouton de validation du formulaire
-        Box(
-            contentAlignment = Alignment.BottomEnd,
-            modifier = Modifier.fillMaxSize()
-        ) {
-            Button(onClick = {
-                navController.navigate("spots")
-            }) {
-                Text(text = "Ajouter")
-            }
-        }
+        BackToHomeButton(navController)
 }
