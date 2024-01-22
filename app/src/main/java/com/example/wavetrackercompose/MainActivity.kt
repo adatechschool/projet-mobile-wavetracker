@@ -46,6 +46,7 @@ import kotlinx.coroutines.runBlocking
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
@@ -131,6 +132,21 @@ fun SootheBottomNavigation(navController: NavController, modifier: Modifier = Mo
                 label = {
                     Text(
                         text = "Nouveau spot"
+                    )
+                },
+                selected = true,
+                onClick = { navController.navigate("AddNewSpot") }
+            )
+            NavigationBarItem(
+                icon = {
+                    Icon(
+                        imageVector = Icons.Default.Favorite,
+                        contentDescription = null
+                    )
+                },
+                label = {
+                    Text(
+                        text = "Mes spots"
                     )
                 },
                 selected = true,
@@ -398,11 +414,13 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
                 )
             }
         }
-        Box(
-            contentAlignment = Alignment.BottomCenter,
-            modifier = Modifier.fillMaxSize()
-        ) {
-            SootheBottomNavigation(navController)
-        }
 
-}}
+
+}
+    Box(
+        contentAlignment = Alignment.BottomCenter,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        SootheBottomNavigation(navController)
+    }
+}
