@@ -138,7 +138,7 @@ fun AddNewSpot(navController: NavHostController) {
             modifier = Modifier.fillMaxSize()
         ) {
             Button(onClick = {
-                navController.navigateUp()
+                navController.navigate("spots")
             }) {
                 Text(text = "Accueil")
             }
@@ -149,7 +149,7 @@ fun AddNewSpot(navController: NavHostController) {
             modifier = Modifier.fillMaxSize()
         ) {
             Button(onClick = {
-                navController.navigateUp()
+                navController.navigate("spots")
             }) {
                 Text(text = "Ajouter")
             }
