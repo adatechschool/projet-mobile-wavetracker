@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.wavetrackercompose.SootheBottomNavigation
 
 
 // Fonction qui permet de naviguer vers l'écran d'accueil
@@ -155,7 +156,11 @@ fun AddNewSpot(navController: NavHostController) {
         }
     }
 
-        // Bouton de retour à la page d'accueil
-        BackToHomeButton(navController)
+    Box(
+        contentAlignment = Alignment.BottomCenter,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        SootheBottomNavigation(navController)
+    }
 
 }

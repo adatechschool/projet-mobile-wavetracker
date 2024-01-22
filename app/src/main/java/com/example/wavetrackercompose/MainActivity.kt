@@ -46,9 +46,12 @@ import kotlinx.coroutines.runBlocking
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -68,6 +71,7 @@ class MainActivity : ComponentActivity() {
                 val spots = runBlocking {
                     SpotsApi.getSpots()
                 }
+/*                SootheBottomNavigation(navController)*/
                 // Routes
                 NavHost(navController = navController, startDestination = "spots") {
                     // Route de la page d'accueil qui liste tous les spots.
@@ -103,6 +107,50 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun SootheBottomNavigation(navController: NavController, modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+    ) {
+        NavigationBar(
+            modifier = modifier
+                .align(Alignment.BottomCenter)
+        ) {
+            NavigationBarItem(
+                icon = {
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = null
+                    )
+                },
+                label = {
+                    Text(
+                        text = "Nouveau spot"
+                    )
+                },
+                selected = true,
+                onClick = { navController.navigate("AddNewSpot") }
+            )
+            NavigationBarItem(
+                icon = {
+                    Icon(
+                        imageVector = Icons.Default.Home,
+                        contentDescription = null
+                    )
+                },
+                label = {
+                    Text(
+                        text = "Retour à l'accueil"
+                    )
+                },
+                selected = true,
+                onClick = { navController.navigate("spots") }
+            )
         }
     }
 }
@@ -165,6 +213,7 @@ fun SpotCard(navController: NavController, content: Spots) {
                 )
             }
 
+
         }
     }
 
@@ -206,40 +255,20 @@ fun SpotList(navController: NavController, spots: SpotList) {
             items(spots.spotList) { spot ->
                 SpotCard(navController, content = spot)
             }
+
         }
+
+
+
     }
     Box(
         contentAlignment = Alignment.BottomCenter,
         modifier = Modifier.fillMaxSize()
     ) {
-        // Bouton pour ajouter un nouveau spot
-        Button(onClick = {
-            navController.navigate("AddNewSpot")
-        }) {
-            Icon(
-                imageVector = Icons.Filled.Add,
-                contentDescription = null,
-                modifier = Modifier.padding(end = 8.dp)
-            )
-            Text("Ajouter")
-        }
+            SootheBottomNavigation(navController)
     }
     Log.v("spotList", spots.toString())
 }
-
-
-//@Composable
-//fun SpotList(detailsButtonClick: () -> Unit, userButtonClick: () -> Unit) {
-// Column {
-//   Button(onClick = detailsButtonClick) {
-//       Text(text = "Détails")
-//  }
-//
-//  Button(onClick = userButtonClick) {
-//      Text(text = "User")
-//    }
-// }
-//}
 
 @Composable
 fun SpotDetails(navController: NavController, content : SpotDetails) {
@@ -273,11 +302,6 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
         ) {
-/*                Text(
-                    text = "${content.fields.difficultyLevel}",
-                    color = MaterialTheme.colorScheme.primary,
-                    style = MaterialTheme.typography.titleMedium,
-                )*/
 
             val difficultyLevel = content.difficultyLevel
 
@@ -374,7 +398,11 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
                 )
             }
         }
-        // Bouton de retour à la page d'accueil
-        BackToHomeButton(navController)
+        Box(
+            contentAlignment = Alignment.BottomCenter,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            SootheBottomNavigation(navController)
+        }
 
 }}
