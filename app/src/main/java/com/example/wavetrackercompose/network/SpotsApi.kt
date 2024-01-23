@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object SpotsApi {
     private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.6.86:8080")
+        .baseUrl("http://192.168.5.46:8080")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

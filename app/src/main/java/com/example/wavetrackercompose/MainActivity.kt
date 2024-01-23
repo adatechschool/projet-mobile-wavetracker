@@ -185,10 +185,10 @@ fun SpotCard(navController: NavController, content: Spots) {
     )
     {
 
-        Log.v("spotURL", "Error response: ${content.smallThumbnail}")
+        Log.v("spotURL", "Error response: ${content.photos}")
 
         Image(
-            painter = rememberAsyncImagePainter(content.smallThumbnail),
+            painter = rememberAsyncImagePainter(content.photos),
             contentDescription = "surfer image",
             modifier = Modifier
                 // Set image size to 40 dp
@@ -342,7 +342,7 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
         Spacer(modifier = Modifier.height(10.dp))
 
         Image(
-            painter = rememberAsyncImagePainter(content.largeThumbnail),
+            painter = rememberAsyncImagePainter(content.photos),
             contentDescription = "surfer image",
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)

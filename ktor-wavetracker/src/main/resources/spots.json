@@ -5,43 +5,13 @@
       "createdTime": "2018-06-26T16:54:50.000Z",
       "fields": {
         "Geocode": "eyJpIjoiS2l0dHkgSGF3aywgT3V0ZXIgQmFua3MsIE5vcnRoIENhcm9saW5hIiwibyI6eyJzdGF0dXMiOiJPSyIsImZvcm1hdHRlZEFkZHJlc3MiOiI1MzUzIE4gVmlyZ2luaWEgRGFyZSBUcmFpbCwgS2l0dHkgSGF3aywgTkMgMjc5NDksIFVTQSIsImxhdCI6MzYuMTAwNTc3NywibG5nIjotNzUuNzExOTU1Njk5OTk5OTh9LCJlIjoxNTM1MzA3MDI3MTM5fQ==",
-        "Magic Seaweed Link": "https://magicseaweed.com/North-Carolina-Outer-Banks-North-Surfing/283/",
-        "Photos": [
-          {
-            "id": "attVTomHPtusQnrC7",
-            "width": 4445,
-            "height": 2969,
-            "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/LO6BwEwrpkX3-JNykPiUvg/qqc_azgYywY1QPI7GZ7BAvijC9rp1PKdnn224ip2snSLHYOnTZsRR6kxHALpFKYuMf5W_O9lRDSph0wnXlDDRXYYwKEuEBlcBd6iOLLlhB3UAxR5YTxVVmLt_Ih4KTHY/psLeEUtEDswrwyDvkS30Pt8Mn3S3lYriP9hl_EvD3Pk",
-            "filename": "jens-theess-511-unsplash.jpg",
-            "size": 3312476,
-            "type": "image/jpeg",
-            "thumbnails": {
-              "small": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/Csd0wb6no6LfJbqgW3YXFw/3PJYndAWYYESQHPpeMFQBTnRKHLbEoDYSyy760znWlXwc6DsbAetjQLHzz2lGcudOL0P4uC7Fi6c9TzWHQTMVPR3jnr_AQ2d-8X3Kgud8FFibV-T8eGXN3dzpZld-Uox/gtr5uPzHCn9SqLueJIos_ngO7YGRc_gh-T6SiQNy0rU",
-                "width": 54,
-                "height": 36
-              },
-              "large": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/LOBtPXyj57mAVSFZjTRj1A/TCqnUwQrsGy6yJ3gIEN6mQraptfqUbkh4FSZq5uU_IiGd5QYWX53MtUCd2uK0iC4YDISgrPPfbMYbqOFPdvTeHTqqaKgs_QU0Fxx2Ub8iqwaQyc3KyJDbDHGiUAZ5D1y/mZ0ps8ZCtNcSOqa8xgme8KQtZpc6A007CHgnX4EUr_M",
-                "width": 766,
-                "height": 512
-              },
-              "full": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/pLmSf_SbSm6BnXyWzAX9Lw/af66NDfj-E_SEKD-2yH9zgwkVeFSz6tdlFAxJOr41U1o7CMEpWPHNlTAa_-qLo8EjA92I8-mKOZfU1dr9iKeNjM6nXmdcmqHPTxNaAiY21fF-Kiw_ghcqHNGli1maKXg/H5C_YjPf5qNgZW6peuCRBF12_D-UsVgkEKSDR9yuHEI",
-                "width": 3000,
-                "height": 2004
-              }
-            }
-          }
-        ],
+        "Photos": "https://v5.airtableusercontent.com/v3/u/25/25/1706032800000/IOBmA9PM-G_eRk-yB9DhjQ/RlVSvlS3Ze9cKZmNVq3cvqMcobTwwOfoDtDg1t7E_bxnlO8-bhXpczHvx5SzwsB6IbgbVZR_tbq6AW6zYuD_c3kzJeWimLQhq5Wjkfy8k79085XNN3pUHMekTNLNAKK5/mCXKD2NURRjkzXb4w6w9O4m4jRvSB54uZoQZU_4HAnA",
         "Peak Surf Season Begins": "2024-08-09",
         "Destination State/Country": "Outer Banks, North Carolina",
         "Peak Surf Season Ends": "2024-10-18",
         "Difficulty Level": 3,
         "Destination": "Kitty Hawk",
-        "Surf Break": [
-          "Outer Banks"
-        ],
+        "Surf Break": "Outer Banks",
         "Address": "Kitty Hawk, Outer Banks, North Carolina"
       }
     },
@@ -50,47 +20,13 @@
       "createdTime": "2018-06-26T16:49:46.000Z",
       "fields": {
         "Geocode": "eyJpIjoiUm9ja2F3YXkgQmVhY2gsIFF1ZWVucywgTmV3IFlvcmsiLCJvIjp7InN0YXR1cyI6Ik9LIiwiZm9ybWF0dGVkQWRkcmVzcyI6IlJvY2thd2F5IEJlYWNoLCBRdWVlbnMsIE5ZIDExNjkzLCBVU0EiLCJsYXQiOjQwLjU4NjcyNDcsImxuZyI6LTczLjgxMTQ5OTI5OTk5OTk4fSwiZSI6MTUzNTMwNzAxNjM4Mn0=",
-        "Magic Seaweed Link": "https://magicseaweed.com/Rockaway-Surf-Report/384/",
-        "Photos": [
-          {
-            "id": "att3KRu08PBz1d5Be",
-            "width": 5184,
-            "height": 3456,
-            "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/-8dOzO2K-YqraTCAme_gbw/h6IJHbCU_nR9SLHloebDzuDE7ogGW-HII3DrS4t0dYIcTX3l7XV0PzQnSM84CUDZwY7SUYojIBWj9D_SJsbFUMXLLpZNPw-w58UdK_-1eOJpgWGHPoiB0dlb4sAj-yXl/yxwiFnmQOdbP1ysfrlg3-rwQlPNaYog7i_316ysxyQk",
-            "filename": "dmytro-barylo-152817-unsplash.jpg",
-            "size": 2959901,
-            "type": "image/jpeg",
-            "thumbnails": {
-              "small": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/PrJpC6TRcr7i9RJ72QOtjQ/2rHkRzt0rqqwY3P9d7uXCNjgTqvuDz3KxsihpAVXpiG7oE9JkDf34PUEME9xQLFcOP6NRURxIGwIO6roAapLvkVTTodZJwxiVHzXwpnxjkP8RJrK8Lj9CuOWfuCfhn8tBr6jz3dfBvgtXNb3ihMFNQ/7W41dzC2lBUSZAYVb-oRFzVvWm9T5YrXQl93gCkI7PA",
-                "width": 54,
-                "height": 36
-              },
-              "large": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/aML4SW0T7R9B0NxlFIjN9w/6Q77GnCxiWXhioIxbPTjc_CTFblGafftZy3Oai-zQr45Xpt0VvE48zVWnKkPKaAXwmdPrF1UYE8RrAAe46cCgclguyvjaVbrbys4PnyPnZp6t3nfxS3PfiV-FaHWpnWkkOaI1cTL7HptsnakUJKVSw/74e68PYiFytG8gyGVUA4hE2z1-uTBtAhNYLxbVsQtAE",
-                "width": 768,
-                "height": 512
-              },
-              "full": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/eJE-fzy1sHnxphL_ptIyxA/dbVx7RgZ-tb770yk2cS5dD66_f0hWafdDRE5CJPYiKvFzUE5Qb29ri1oaoTpFw4jV636c3FfcXxDJkEPwHrPoPP8y3WFUdBf_IRQEOx9t6mHRFp22HWc9ATrHP-tGrJO/iF6Z9-EMxZWxSm4xhO8ybtuIjARN5pxexZLV5qP9EIM",
-                "width": 3000,
-                "height": 2000
-              }
-            }
-          }
-        ],
+        "Photos": "https://v5.airtableusercontent.com/v3/u/25/25/1706032800000/UpT1HbH-JlgVxcorecltNg/tSI5gO229VMQZCiluicN1E7dHD9XDEBU-wCk3a2xmIiYfzROUndbUXPW4uv1JL1VVcQk0XQP8_greq5aFxpXG8tDD-VqM763W7vSRpAcok1lDt8GhOf2mDL9THggA77R/vJ4wwQwAd3kuCVQZ_zkkblq7lZp1mJLfcL9HZq-3GYo",
         "Peak Surf Season Begins": "2024-08-23",
         "Destination State/Country": "Tillamook, Oregon",
         "Peak Surf Season Ends": "2024-10-17",
         "Difficulty Level": 1,
         "Destination": "Rockaway Beach",
-        "Influencers": [
-          "recazwxnm2qND5pwZ",
-          "recjEgExH485RVPN9"
-        ],
-        "Surf Break": [
-          "Beach Break"
-        ],
+        "Surf Break": "Beach Break",
         "Address": "Rockaway Beach, Tillamook, Oregon"
       }
     },
@@ -99,47 +35,13 @@
       "createdTime": "2021-04-29T12:50:33.000Z",
       "fields": {
         "Geocode": "eyJpIjoiU2tlbGV0b24gQmF5LCBOYW1pYmlhIiwibyI6eyJzdGF0dXMiOiJPSyIsImZvcm1hdHRlZEFkZHJlc3MiOiJOYW1pYmlhIiwibGF0IjotMjUuOTE0NDkxOSwibG5nIjoxNC45MDY4NTk...",
-        "Magic Seaweed Link": "https://magicseaweed.com/Skeleton-Bay-Surf-Report/4591/",
-        "Photos": [
-          {
-            "id": "att3tcrmS5EwDhGAC",
-            "width": 3000,
-            "height": 2000,
-            "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/R3J5CoNlENAULdZo64pqrw/5kblc76tXi6eV95TxCWnutBKH8yCV16AmqlG_nQKEEGn_WwvBimvTHDxGptB6XIdicoiFa48gdFI1jrXRPOQPXUXTK6V0R_8qqBKcReGB5D2OJDbEbLPeb2p-LRVNtz8cf6DlFyMnFL_N9FD85dzy5WHoWOO5v3qTvSVE8a8nph3XUpKe8l0EVbzbV2nAAAYPitMA7vPAZr8wJ3WT0gNUQ/qq7j4MNs_MfN_81jCrxAewP1GCoyvy8qV4LZet83JNU",
-            "filename": "YzqA020RRLaTyAZAta9g_brandon-compagne-308937-unsplash.jpg",
-            "size": 1494974,
-            "type": "image/jpeg",
-            "thumbnails": {
-              "small": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/aofnUalKBSteI6ZA4Z_pnA/mNHVxzVqM1iay2RWUX9babcwkuNhqGxpx4was1UfhMr9Bwfg8eJ62FAExTIhzKJzAgrcplf0jWfcCtdgSw00sH0v1w25vG8tcbfsuATNRgWm9pwSydMqsPvkCzaCn1UwzvFDZ5q2qd-aPTaWPqDQHw/WA3cr-83c4YvzCLU-l4eK-v3WDgecfM8rh6ctcQ-jy8",
-                "width": 54,
-                "height": 36
-              },
-              "large": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/mlYVziDGFtQef26_SQcNtA/izWpfJf2M-_IcjdwTKRsEvxdoFLFncNkP-l7VUlUdbad1fmQhhVRpPNQqZUqZCPXCLpmjkPXs-iV-njTpcxM1gF_SxkVVwtn1PeIbYph7IkSGjYirvPXe-dQ2B6Xnx4GrGcKcO4njFWiOdl3ooL_bA/CSV38SLT3d9AUz6bEpbPUDC55DwZZmMaL0YgnrwgIrM",
-                "width": 768,
-                "height": 512
-              },
-              "full": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/t43vdwIX9Q5v8pyJ8MSA6w/Vmzb20r-kvqlasry8WWkp7m9x8-VNp__uiFkpJKmL99Sdb04JccYmSYje5WD8BbAHph5r28OQS8QeH7TxTt43bcClSLkfGKPxYUM55iICNLGMiSrgmLGsl7LSKOpa52HtaJywfP5r1md8AeXVcqK4w/iabwCx1T9Pp6ND5B_fQLVIY2VDj3wtmGTSKgo4cwQ_E",
-                "width": 3000,
-                "height": 3000
-              }
-            }
-          }
-        ],
+        "Photos": "https://v5.airtableusercontent.com/v3/u/25/25/1706032800000/Cp9f9uRCl94_oCdc8v2DeA/DJ9dZUM_TbBVzS6kIr2HcM3CkZrMUJXRRQlYyLct0b2jUxyDy5Q19Cazgn5QF1JilYMJcsqx0A6OK8y9Y_sJI_WFRKqV4bhdXKhSg7Y3_FsDJnnTqCdSb4D6WrjQYDNqMc8g8arD8_6BhqXq9C0UJg/YKP7oqE4BsEbeu-1EJxKLMhzvyNLRjA6G-NVnpCuyAk",
         "Peak Surf Season Begins": "2024-09-01",
         "Destination State/Country": "Namibia ",
         "Peak Surf Season Ends": "2024-11-30",
         "Difficulty Level": 5,
         "Destination": "Skeleton Bay",
-        "Influencers": [
-          "recVgmSHhnPpRi5EO",
-          "recjEgExH485RVPN9"
-        ],
-        "Surf Break": [
-          "Point Break"
-        ],
+        "Surf Break": "Point Break",
         "Address": "Skeleton Bay, Namibia "
       }
     },
@@ -148,48 +50,13 @@
       "createdTime": "2018-06-26T16:45:15.000Z",
       "fields": {
         "Geocode": "eyJpIjoiVGhlIEJ1YmJsZSwgRnVlcnRldmVudHVyYSwgQ2FuYXJ5IElzbGFuZHMiLCJvIjp7InN0YXR1cyI6Ik9LIiwiZm9ybWF0dGVkQWRkcmVzcyI6IjM1NjUwIExhIE9saXZhLCBMYXMgUGFsbWFzLCBTcGFpbiIsImxhdCI6MjguNzQ0OTA5MSwibG5nIjotMTMuOTQyMjc3OTk5OTk5OTg4fSwiZSI6MTUzNTMwNzAyMzk0N30=",
-        "Magic Seaweed Link": "https://magicseaweed.com/Canary-Islands-Surf-Forecast/5/",
-        "Photos": [
-          {
-            "id": "attTeLkqASgRZ5myv",
-            "width": 3992,
-            "height": 2992,
-            "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/F3h-siLpb2YdThd3SVPl3A/es4Zyif-rITTgvwKa0NQRFpBcAZQaeUF8qX5Ex-unCe26aK6MZiKon2-osF1ekBwz7_sJArnaJ2xvsNpNas8R7R1FKpFDQl21qNc9KGNPnBkIny_ANhkow6Y2TBrsa0M/feDIruq-_cqTn6K9PVaasDKnIFizwZy3ZLKf199DJNs",
-            "filename": "josh-withers-636290-unsplash.jpg",
-            "size": 5985241,
-            "type": "image/jpeg",
-            "thumbnails": {
-              "small": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/0BA_YPn-69W7dlg0kuWhlA/Y9iPt7Pbwi1mLPojV53l9-eRGEXfgKcub6ULn9xjUogr5QOq-EBbZ3yyilD6z8eeGP0CPo5fNmVadyWXgVdgnTbFq8zhdqOI6rA1bRTrXVx88GizLciBih9icPlJI6dD/_pm2e09BayOHJMQZvVDho0AO97O6IprRpxJwroZi8zM",
-                "width": 48,
-                "height": 36
-              },
-              "large": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/0XcVqGY7Zl-EGBA6qiI8QQ/Crbm72ynzF_40bzGjWHrTqdoI-GiR5aswj-vBvchJWN6eEwvW2Iv9xVUfvfcHbjwr64igNyaHyROWb3Kh-AAa_dNZEq_xqq2STY7jQYXAEmxPH0TiHv9IivYEuhIzkS3/LCPqSVtq7Rg74QFg8ObqLPiKBBLyQcx7bnsfr_5gIz8",
-                "width": 683,
-                "height": 512
-              },
-              "full": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/sIzoLyLoZ19QkQkNIjxuTQ/IN-5TfGMglRrAEBcbYsbh90UzfvAkzfP_qawiT1QC5sYAynA8yEYc9zcRf_PckTUGoQ4wcOpAHivpKLdxpssH9EFnNfvH2Xw0MeL4IHI2LsBbrzmfke5jxm0otGRqH79/6nG-9Fg5FGqSI8zKbtMCbZqmTDb94-5z2GeMvejytoI",
-                "width": 3000,
-                "height": 2249
-              }
-            }
-          }
-        ],
+        "Photos": "https://v5.airtableusercontent.com/v3/u/25/25/1706032800000/JlaAO2hP4xRPx__a9v_ABA/lSL-x5hs22pKKB-3Sf-jNaKNm0_EB8d8LyLnZGckox78xFRCeeM9ivt4j2TDySaW_r1r6eNVzpm8dYVD29JcOLh9xnv0hQwe7Nfi5HmXeKGsl-aPS21lHsD1AfsKhh3i/k2fbyeXGmJ-3tagOto-5j-F_iiiEhCm0exIBcq2AsnA",
         "Peak Surf Season Begins": "2024-06-01",
         "Destination State/Country": "Fuerteventura, Canary Islands",
         "Peak Surf Season Ends": "2024-09-01",
         "Difficulty Level": 3,
         "Destination": "The Bubble",
-        "Influencers": [
-          "recazwxnm2qND5pwZ",
-          "recVgmSHhnPpRi5EO",
-          "recjEgExH485RVPN9"
-        ],
-        "Surf Break": [
-          "Reef Break"
-        ],
+        "Surf Break": "Reef Break",
         "Address": "The Bubble, Fuerteventura, Canary Islands"
       }
     },
@@ -198,46 +65,13 @@
       "createdTime": "2018-06-26T16:51:23.000Z",
       "fields": {
         "Geocode": "eyJpIjoiTWFudSBCYXksIFJhZ2xhbiwgTmV3IFplYWxhbmQiLCJvIjp7InN0YXR1cyI6Ik9LIiwiZm9ybWF0dGVkQWRkcmVzcyI6Ik1hbnUgQmF5IFJkLCBSYWdsYW4gMzI5NywgTmV3IFplYWxhbmQiLCJsYXQiOi0zNy44MjE0NTkyLCJsbmciOjE3NC44MTIyMTYxOTk5OTk5N30sImUiOjE1MzUzMDcwMjYwNTJ9",
-        "Magic Seaweed Link": "https://magicseaweed.com/Raglan-Surf-Report/91/",
-        "Photos": [
-          {
-            "id": "attNYlgkGdhX0OpwM",
-            "width": 2614,
-            "height": 2268,
-            "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/sO8voqccr6zjMgtIdQasSw/zZLcbafpjzVNlNBdDMzy2C40U5Vcp2_bITJqIx-khqx7AsqC8ctjJgVFPyfxqMOktg371ucp1eP_b7_FZJgHWetSpCqS1gq1AyOMG1WnMivm4telSQVriwOt_IjEW4Zc/dYdVjA8iSiBAI0O4X9h8fZClASLigjpN73GRsVMCUyQ",
-            "filename": "holger-link-707884-unsplash.jpg",
-            "size": 889937,
-            "type": "image/jpeg",
-            "thumbnails": {
-              "small": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/r76zDYrHaA_n2a9cRD7IFQ/QGzctovqt6YoM-cN20Jaz28NudLFSRNbeBskbmRe7e8BwUURjnfBbwywK41_IclOk_yceJXx4jzRi64Y9eCgKITMewiDj9vAQ4bUoKrnJv11ft9_GkkxxEljUlU7hecY/8gz4nnKNMYDYRBVLOkclupzUvKkufT69ES5w4VbVEtU",
-                "width": 41,
-                "height": 36
-              },
-              "large": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/QngnXfIjhoJOgkBFtNuFZw/6i1RpFeIo8uW3-FFqhim1c7cp4DPFL0do5W_qv5gzNZIYqaVuCMTCHfe6q2RWYLfgccsOfJEgWmCfsXafS91bXCa3fiQvaXmmp9UyE1h0sIeCXRSWJDtPVFa1PrhWujm/fKfNo7HCHqGYXAM-IpzCbqpN7JV7Wel-0LCNftDIFVU",
-                "width": 590,
-                "height": 512
-              },
-              "full": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/DbFDe9j4v-j8k2EkliWWuA/u9-j2CrxJoOJnABfi_3OfnbuqiCjR6M86S20j7Dw2BJcZgKRu1n8YGyg55sH8AlMndemvsbevb_pxXW6yJZxk3zqaE36-Sv9zRGyD9fgtVkpawxwFN_0LRUq-SWe8-98/nsTMnWnuBkBM9YiVoKfygPi5dAu8yTHv8NQeRfnzdTE",
-                "width": 2614,
-                "height": 2268
-              }
-            }
-          }
-        ],
+        "Photos": "https://v5.airtableusercontent.com/v3/u/25/25/1706032800000/M3elGn2X-GAggTrzFQPaUQ/vPZv5UYvRMCj4iVFjKrCvXn50OR6q2upnF4bw370oGoJ3VJgwaxFuZJDQUBo4G3N4-TRgtXAI98SuuFvzDVVvJPnJUR0osgXRiZuylB1GS5gXXohe5x6vTaF1a2W9ALL/bYvFJvQY1NwKdSbZ665zWPUATew_QlcONdahouar2Ow",
         "Peak Surf Season Begins": "2023-12-01",
         "Destination State/Country": "Raglan, New Zealand",
         "Peak Surf Season Ends": "2024-01-31",
         "Difficulty Level": 2,
         "Destination": "Manu Bay",
-        "Influencers": [
-          "recjEgExH485RVPN9"
-        ],
-        "Surf Break": [
-          "Point Break"
-        ],
+        "Surf Break": "Point Break",
         "Address": "Manu Bay, Raglan, New Zealand"
       }
     },
@@ -246,46 +80,13 @@
       "createdTime": "2018-05-31T00:16:16.000Z",
       "fields": {
         "Geocode": "eyJpIjoiU3VwZXJiYW5rLCBHb2xkIENvYXN0LCBBdXN0cmFsaWEiLCJvIjp7InN0YXR1cyI6Ik9LIiwiZm9ybWF0dGVkQWRkcmVzcyI6IlNuYXBwZXIgUm9ja3MgUmQsIENvb2xhbmdhdHRhIFFMRCA0MjI1LCBBdXN0cmFsaWEiLCJsYXQiOi0yOC4xNjI1NTcsImxuZyI6MTUzLjU1MDAyODgwMDAwMDA2fSwiZSI6MTUzNTMwNzAyMjAxNX0=",
-        "Magic Seaweed Link": "https://magicseaweed.com/Surfers-Paradise-Gold-Coast-Surf-Report/1012/",
-        "Photos": [
-          {
-            "id": "attmtbEOAQteRjz2p",
-            "width": 4000,
-            "height": 3000,
-            "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/otUQJbHVVyzoBl5ylr_5kA/3eqEhD3oW3Fd5nfElnPgx37VB4dtTaqSaWjM9BE8iElRYONCDWVkILKFd4n2rEj04rE1VluEREAkRqg9ICpXjGRqg6wFosfbnerC-lNduhNxZvUJJMBR-4OlGPzxtahn/bXmSaPrDaVciGiR85rFBTJHxSQxz2fJtfLvMLNSbii0",
-            "filename": "jeremy-bishop-80371-unsplash.jpg",
-            "size": 1524876,
-            "type": "image/jpeg",
-            "thumbnails": {
-              "small": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/DpTzLsUlH41gjQMgCU0d1Q/iKaF2A3OgdTjBpXiiyus6u5vk8BniX9hiivVlTLJ8Z4L4uWHLrQ-1FG39O16oYBKz2o2_w99w7BVc-VkqodH8ttmT8TzWMQrk4J_j2smfkZMBhcjX_yoFIXr2G61XFkc/VhkCF4SOhzPKzpAoD00TmnfBocV_BnYZxiAN7J1EduU",
-                "width": 48,
-                "height": 36
-              },
-              "large": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/F9ILwsaXhs1GDn7Gio9qOg/iQpeSkLiZufz_19equSt5dtzo9xjMdA_4QK0p4G7xsQQ39jhKWDjzCG-W1CLiOeQJW53jWEyPAtON6XRZKjJtoUmDEhvO4u_JwYs3Xk6hLUV_kQlcRFPS5pQECsUIQCe/wYUmsRPFS1qQPJhwgcmEFZYD1JixFvF_CqpaCxf9B_g",
-                "width": 683,
-                "height": 512
-              },
-              "full": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/L349a_9IVm5zixL6XWMG-g/2hq-FKV6X65VdXBJ1_Q9CLGjT6lItfiPyMXIwUxNhNAGH8x1sylnsrSxeXB1qmPDEbegBxpwIw6b0pTOIl8TO6aP-wqNoDHNrKmweeRRO2k9IAqQf2tFo2NchY7ad9VN/LiHeWECfaPY80EhV575ENsD00e1xcNLv-K0h5kc7cKI",
-                "width": 3000,
-                "height": 2250
-              }
-            }
-          }
-        ],
+        "Photos": "https://v5.airtableusercontent.com/v3/u/25/25/1706032800000/HEtqzUu6F6Biyoq0mVmFmQ/6wggl8z3GNxTUHV5daedsnLlFWodlcSsbHtn-lcCXDpg2Ay8ydoEXE4JkQ5DDFxXPLWLYoadNyO2ORAyhU8L09W40bBlkewiAjul8y-yOWu_YQP5bkT7IxnzWFxBsLbF/h-5E8UcS3FYcjT13YqtCjlJqzlDZl2SwYdDiihzXUeg",
         "Peak Surf Season Begins": "2023-11-28",
         "Destination State/Country": "Gold Coast, Australia",
         "Peak Surf Season Ends": "2024-02-01",
         "Difficulty Level": 4,
         "Destination": "Superbank",
-        "Influencers": [
-          "recazwxnm2qND5pwZ"
-        ],
-        "Surf Break": [
-          "Point Break"
-        ],
+        "Surf Break": "Point Break",
         "Address": "Superbank, Gold Coast, Australia"
       }
     },
@@ -294,47 +95,13 @@
       "createdTime": "2018-05-31T00:16:16.000Z",
       "fields": {
         "Geocode": "eyJpIjoiUGlwZWxpbmUsIE9haHUsIEhhd2FpaSIsIm8iOnsic3RhdHVzIjoiT0siLCJmb3JtYXR0ZWRBZGRyZXNzIjoiRWh1a2FpIEJlYWNoIFBhcmssIEhhbGVpd2EsIEhJIDk2NzEyLCBVbml0ZWQgU3RhdGVzIiwibGF0IjoyMS42NjUwNTYyLCJsbmciOi0xNTguMDUxMjA0Njk5OTk5OTd9LCJlIjoxNTM1MzA3MDE5OTE1fQ==",
-        "Magic Seaweed Link": "https://magicseaweed.com/Pipeline-Backdoor-Surf-Report/616/",
-        "Photos": [
-          {
-            "id": "attf6yu03NAtCuv5L",
-            "width": 2233,
-            "height": 1536,
-            "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/t-mdUaJ5LWRsVwZOWgQceQ/6XFJ9peJd8SWX85vsmrAu7YBQ6_knaf_CuPyIgUTbfM03LFWo5kgS2lj4rSoOxL74fsUhj9XcRgSbI_MUnuy78VUox8ikHqR-hAKAnbDlaWPaPqG7Go4mvD89XehprK6/AvvPVqwuU6RIQ8KInWjqlTGqLgwnUh5qWU-ijtVYmtU",
-            "filename": "thomas-ashlock-64485-unsplash.jpg",
-            "size": 688397,
-            "type": "image/jpeg",
-            "thumbnails": {
-              "small": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/rT2ckz7vRt6Ym1aEkLslLg/l6hX5kNKsb1ubOaR6RG4COkZGCslQzCkmziPgiC3xtS6EFho_HPti6oBqUBvTrYFnjTz2kIjVsCUmQLmO1kC2gp8JXChnpqROU-4JCLyqtDhnprfyILsoOnBc8Ica4mD4xjM4G6vHJ8uCREJZWLUpQ/15q_s6RW2H1WdkhpFREhUNVnMciST4k15OQbAqnJABI",
-                "width": 52,
-                "height": 36
-              },
-              "large": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/_10wdpD7m2NVYZz6txLWaA/bnEFSEawI88k5xra4dWHAdEVXFnyjTT_v-wHBJ5jmfabotgFzppuid5DBvusiC1lWcQ2-qPrtEM7lPM8_IlrXgAfnkZfnVBzBgHBProHt_1jSW1nY_bTZnuZduxhANU9DO3AEkuYkFvM1D5-L3lZWg/AsJGh487E58aMZ4NG3hbFNkSDrmoGTfr5ee2Wssr2Kk",
-                "width": 744,
-                "height": 512
-              },
-              "full": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/2jTPmldc5QkyN2prLpdQ3w/r5pYgaeBgmOtbMkNdobWP23IP7nB_xSrt7WvFCS8sXWO9uRcqr8MNGlhMBdb18Ikyb9OV6HVzV89y16UlbS6KWjF7QCDzzVJd25x24RaofAho3rZSR9XhRPxvtEL4e_O/jkBBFg5S7avdlhFjJV9K9x61vGOeZRgtWOm4OryV3ro",
-                "width": 2233,
-                "height": 1536
-              }
-            }
-          }
-        ],
+        "Photos": "https://v5.airtableusercontent.com/v3/u/25/25/1706032800000/16jJrYaw9gHBDV6f4Sg9uQ/VbjMfxOCVjk_Eu9AYaWCdKazX_h-CYeKMeTUPxomontlR-y8EAMcMLfakfREtIPwCA8fnCwZ-shaWI-qnZ6FI2IZksN0tgGOcaVCUyTXHzSHXOYmf1EjegGtQBDE74I5/4tbTS8yWaagtFnpWalbS0Mjhc-KfzEB1o3aBTmFLuHA",
         "Peak Surf Season Begins": "2024-07-22",
         "Destination State/Country": "Oahu, Hawaii",
         "Peak Surf Season Ends": "2024-08-31",
         "Difficulty Level": 5,
         "Destination": "Pipeline",
-        "Influencers": [
-          "recVgmSHhnPpRi5EO",
-          "recjEgExH485RVPN9"
-        ],
-        "Surf Break": [
-          "Reef Break"
-        ],
+        "Surf Break": "Reef Break",
         "Address": "Pipeline, Oahu, Hawaii"
       }
     },
@@ -343,48 +110,13 @@
       "createdTime": "2018-05-31T00:51:11.000Z",
       "fields": {
         "Geocode": "eyJpIjoiU3VwZXJ0dWJlcywgSmVmZnJleXMgQmF5LCBTb3V0aCBBZnJpY2EiLCJvIjp7InN0YXR1cyI6Ik9LIiwiZm9ybWF0dGVkQWRkcmVzcyI6IjEyIFBlcHBlciBTdCwgRmVycmVpcmEgVG93biwgSmVmZnJleXMgQmF5LCA2MzMwLCBTb3V0aCBBZnJpY2EiLCJsYXQiOi0zNC4wMzE3ODMsImxuZyI6MjQuOTMxNTk0MDAwMDAwMDJ9LCJlIjoxNTM1MzA3MDI3OTc1fQ==",
-        "Magic Seaweed Link": "https://magicseaweed.com/Jeffreys-Bay-J-Bay-Surf-Report/88/",
-        "Photos": [
-          {
-            "id": "attw1P2npyb2BdUwL",
-            "width": 3648,
-            "height": 2432,
-            "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/MhUT-9ibk5aGGb5FNG9nLg/uKLDbw5GUIHLGEwQyRlOaOcgkKvOnWmOKnYWYfw2yWxwBnrJI1EwND1j1F9PlwOoP0CqicKSCTeuj9HgZ9CmTTwq37pdsIbL8vlKxk6WGeFq6j14gByQ9-mh37kdIfxM/2bQIwH2e0wuYuU6h5jWS6sgKAllw8lpXC4BjV1yGZiM",
-            "filename": "cesar-couto-477018-unsplash (1).jpg",
-            "size": 3066389,
-            "type": "image/jpeg",
-            "thumbnails": {
-              "small": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/1c4KSsZV4vjrz8C6QtD2qQ/fg5MaH08JzycpEFKdZ5FoVjsKokDZ55QgGlFBpaA3qNnQZNnL3qV4uWdq-ZqWvP04xxVY1io-jxPYfjqof4MRt2f6LUNSEY-tZmfkIj9RefbR7Y9iQA93580fjOFQJlX0JvWNCBO_UZZaXQdrW1L7w/ze5Ofw_iyJ9A7uoHPwA783KkFRmSRQ_7OXYMsZhAUk8",
-                "width": 54,
-                "height": 36
-              },
-              "large": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/5Eg2KA43_PEhsYz14w8LPQ/Af_7p1KlyvBsD_d2IhNOkwrXoXaS9T8tqJHjPP46kx-_U4a2E-y3xqC7WGjMELBR6iWbmbp4HapkuUUsbRif-MoF7U1bQ2cYxirGMgUZohW1fBwqyeeX46OdLUB91L6Wuj3BwDBjP4BLaZG2OaVk2A/Fg_SITRCwx75Ac1lgvK7op6PyT4Fvj0kWQeA1hMSeS0",
-                "width": 768,
-                "height": 512
-              },
-              "full": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/f9BPaxnbeFUndmEdnBdP8Q/9Wc8UM-s2SXDyKia0_Im0qlz4PB_5H7btcJeBW9YZONcEY2MQt1qHwdzfaxfQr_6HPupWKMXGXhm6b0F2n6q-4uulOjItakd96f5TOzEdou5wccbS_Ru1Ul8tdMc06RYRVk9uq77R_qqax7zZCIv6Q/5VOHBHugECf901zcwIFwmiuiEQdXol3gwIRu8rX4Sv8",
-                "width": 3000,
-                "height": 2000
-              }
-            }
-          }
-        ],
+        "Photos": "https://v5.airtableusercontent.com/v3/u/25/25/1706032800000/C2cztEO759nuMAH43KPRAA/hS3uWspHXl-FxD0pVGIkMlPa0JNwmGtV31HPirw3JJpWOS1pNG_Sh38F83T3vH17SaV_xaFP94cxEIPhVVnOpWGhG5-gj1S5BJqtReeIiU-H8D7mnyQ94IY__8w4HLuVY20NWYYGSNtEWpp3ZyI_xA/vS5qJuY_qCMvtUAdxuzLKSy3SHMn5x-x97uf310xHGk",
         "Peak Surf Season Begins": "2024-08-01",
         "Destination State/Country": "Jeffreys Bay, South Africa",
         "Peak Surf Season Ends": "2024-10-09",
         "Difficulty Level": 5,
         "Destination": "Supertubes",
-        "Influencers": [
-          "recazwxnm2qND5pwZ",
-          "recjEgExH485RVPN9",
-          "recVgmSHhnPpRi5EO"
-        ],
-        "Surf Break": [
-          "Point Break"
-        ],
+        "Surf Break": "Point Break",
         "Address": "Supertubes, Jeffreys Bay, South Africa"
       }
     },
@@ -392,50 +124,14 @@
       "id": "recsa7TSg8Ii1yJZW",
       "createdTime": "2018-06-26T16:49:56.000Z",
       "fields": {
-        "Travellers": [
-          "receZTWCViQUOIcfK"
-        ],
         "Geocode": "eyJpIjoiUGFzdGEgUG9pbnQsIE1hbGRpdmVzIiwibyI6eyJzdGF0dXMiOiJPSyIsImZvcm1hdHRlZEFkZHJlc3MiOiJNYWxlIE5vcnRoIEhhcmJvdXIsIEJvZHV0aGFrdXJ1ZmFhbnUgTWFndSwgTWFsw6ksIE1hbGRpdmVzIiwibGF0Ijo0LjMxNzg0MiwibG5nIjo3My41OTE3MzI5OTk5OTk5OH0sImUiOjE1MzUzMDcwMzA5MTJ9",
-        "Magic Seaweed Link": "https://magicseaweed.com/Maldives-Surf-Forecast/56/",
-        "Photos": [
-          {
-            "id": "attrFXCHNlP6Xws7n",
-            "width": 4912,
-            "height": 3264,
-            "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/3kY3YxVEMdlzOnpo1V0njg/IhHMZ3wS3jkJRV8XlYEJbOP1m_a382BU7B2lvQh4JkH4AY0BHrwJCQtEEzy2B4lT0kRq1o55y8FssXOSmcF102lJ1jJuc6GKCV9DYC9aBLYncV9XmX5To_AjSzJ20NeUNjSgHdWN4ZE9lIGBtToAcQ/M_j-a1oNs-tXm3Xk7wudQE3o9-24M7oXlo_EUAlg-EM",
-            "filename": "aleksandar-popovski-693255-unsplash.jpg",
-            "size": 4449844,
-            "type": "image/jpeg",
-            "thumbnails": {
-              "small": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/vFtehJtpLi4h0A-zsYCofg/CJDDvXho2Z1RhH9g0X2_wLe9Vb9S4xezHxChp9fqPMZYVHCeEMIcMsD07H6mv8ULxeKO_EoTDKzfg-Hjs_HI8xbdPOplM3xQmEaoGLnz5GhVlrcO21oMpjaJdMiNog3XYJIXYy-SweMLQU5JyA6-2Q/OMXp56T4-dWrgT__Epiu7X2xm-bUmf_14D3Wp7nSZi8",
-                "width": 54,
-                "height": 36
-              },
-              "large": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/obiGWYyLkhUL2fk0Uk4S1w/lKnXb3mrdvzAl-tuzZ3kDU7vBV77UDauoRHBsE6t3x9b6YOt5-T6MTwbaruiLI1rHlU_KT_3WEFq663e7wKxuNAdwFi51ivPtwgdxS4jIRkhFENz56y0gNyRThUCCd-CG0mK6zpdovPdunmui8Uaew/_wAGJu3C4GCWYUUJOMSHqNMlIF0h19hzemYnjNNOIkI",
-                "width": 770,
-                "height": 512
-              },
-              "full": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/370g7QNHa3-DgBxM4-BVcw/jZZkBRiGs1A2eFyTnDGlsIcyhKdpSLJ8wlPRiSS2Mi-yumI9RS547Ji5yoym5CbAZ2PaX8vCKxoBLAoVmZXtJuIIXKc9RauJwqUfLUmEY5L9ZJRvqvrTbWeIcr1ohdIkEW-2F7yZOO8kC1BhjWB5Dg/rrqAhdfV_nq8BNlAiQDp-bqe--132oiLnFfwEUB1m9c",
-                "width": 3000,
-                "height": 1994
-              }
-            }
-          }
-        ],
+        "Photos": "https://v5.airtableusercontent.com/v3/u/25/25/1706032800000/hKk7fJ2_bIIoN2Vy0ckC3w/jPjJ_b7hSRWb6HhK0DxBHZUrq1JfhR6JYLw-75eZEaa856z3w_xkgmU38FYTS14vwI4kvCabAOVIJxYLJzuMS6YmD3ZaLeRrUcmtbnswwazXDKHEkWcsj_9vMtJyqsuTQ0T2EghEBrHTxXowYwoRxw/3Nu7Nov5ARWtJadmAuIphuhhtVbK48XuDzQxsEMxyUw",
         "Peak Surf Season Begins": "2024-04-01",
         "Destination State/Country": "Maldives",
         "Peak Surf Season Ends": "2024-05-31",
         "Difficulty Level": 3,
         "Destination": "Pasta Point",
-        "Influencers": [
-          "recVgmSHhnPpRi5EO"
-        ],
-        "Surf Break": [
-          "Reef Break"
-        ],
+        "Surf Break": "Reef Break",
         "Address": "Pasta Point, Maldives"
       }
     },
@@ -444,43 +140,13 @@
       "createdTime": "2018-06-26T16:43:44.000Z",
       "fields": {
         "Geocode": "eyJpIjoiUGxheWEgQ2hpY2FtYSwgTGltYSwgUGVydSIsIm8iOnsic3RhdHVzIjoiT0siLCJmb3JtYXR0ZWRBZGRyZXNzIjoiUHVlcnRvIE1hbGFicmlnbywgUGVydSIsImxhdCI6LTcuNzAwMTcyNCwibG5nIjotNzkuNDMzODE4Nzk5OTk5OTh9LCJlIjoxNTM1MzA3MDI0OTY5fQ==",
-        "Magic Seaweed Link": "https://magicseaweed.com/Southern-Peru-Surfing/378/",
-        "Photos": [
-          {
-            "id": "attzGSzbftLhEkD7Y",
-            "width": 4881,
-            "height": 3254,
-            "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/XAPZ0waq0-7xffVAMYkg9w/i9njjM2KS5w5YZ9RGQ46Ku49GeDQ9QCYxoBKJzxep8ebQr8LytFTRqTUQHi1C_PIOGW8y22ZrsXArslvFuNuz-Jl4W7h4-rz02vbbK5Xmh6iVICkShioYPSI8UHSFwj_/DLgP0iALXW_rJ_Lfsq6EIhSERrcssa8OEUG81v-mJSQ",
-            "filename": "troy-williams-532798-unsplash 2.jpg",
-            "size": 2667269,
-            "type": "image/jpeg",
-            "thumbnails": {
-              "small": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/5gppN_k3H42XVEGfjwtAiA/svfS_Mz84JGsG8hmscwNphiknzP2NW63xNIpkfN7xgUM4QVVNz5ortqdZVvumDv3-lMCXHGhsHGzGuDhR99neH1ZIDC5lIDi6Z83hrifiqiAkYIgpybw0rlG5Awj90k7R4eV20AklsCEeGMVw5HOwQ/7FUN-XejwB1DkO8zaEq9yFBRclw__mavmX6VsrcywIM",
-                "width": 54,
-                "height": 36
-              },
-              "large": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/Jcf7XjnPjAAkdhlABsYFIQ/wcg5lO-MQGelikJSDxqccFHmwBZy6cYqFGNe4j7uL9zlt2EYRAWRSfYWx3IBpnWz53QNxSO0Nw7dgzNE2SFmfqnlZsa1Bj_YR5NbJHWqJusTEYMTHOj8Dbx84AGm2IEPIlNyzzof78ka-3m_ofyCDg/Ydz0PeZ6FoLW2MoWuxsePM86jIPY6TTE-3uwCFPpG5I",
-                "width": 768,
-                "height": 512
-              },
-              "full": {
-                "url": "https://v5.airtableusercontent.com/v3/u/25/25/1705939200000/e3z_rYBzF55QoorfJ9N0hQ/t4zSKlYTyRj5OTyqDXI5B9aRvFaSzVo7-pVy6Jv3d0da9dhfKbdVfAeiaqJqGiFjP26NSa6LDB4fk9Q_YlzqJLoVq0d6aQcO5311S9r9-J1Ct0XCizTekTS8QtxoAyiLWhUmQ80esd3VgV_wPlJdAA/a4mzPytMN-TJZTD8xS5hFbYmgk499OPhbRsBiOGG6go",
-                "width": 3000,
-                "height": 2000
-              }
-            }
-          }
-        ],
+        "Photos": "https://v5.airtableusercontent.com/v3/u/25/25/1706032800000/YLJQxcYdUEBAYDd014THXQ/OlK_Da8VcxcREMZwXpGFEf7x1Z7klFxIPsyr9Sz74W9EfJPE830e2N94u2r-ai_BJqgX5HlFlMzb2VWB30XELqxMmx0h0MkSR2ZJq-1ezD-UacVFxaNJuyUma8PqGBxpDo4d10jVlavmEezzentjEA/l2Y6GjnyZbAYwI4yG1p5Zk_Bbwnr_M4NEEFmV6xWfgY",
         "Peak Surf Season Begins": "2024-05-01",
         "Destination State/Country": "Lima, Peru",
         "Peak Surf Season Ends": "2024-06-28",
         "Difficulty Level": 3,
         "Destination": "Playa Chicama",
-        "Surf Break": [
-          "Point Break"
-        ],
+        "Surf Break": "Point Break",
         "Address": "Playa Chicama, Lima, Peru"
       }
     }

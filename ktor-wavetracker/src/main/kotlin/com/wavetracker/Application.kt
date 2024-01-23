@@ -8,6 +8,8 @@ import com.wavetracker.plugins.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import java.io.File
+import java.util.*
 
 // Fonction principale qui démarre le serveur Ktor
 fun main() {
@@ -27,8 +29,8 @@ data class SpotList(
     val id: String,
     val destination: String,
     val address: String,
-    val surfBreak: List<String>? = null,
-    val smallThumbnail: String? = null,
+    val surfBreak: String,
+    val photos: String,
 )
 
 // Classe représentant les données d'un spot avec les informations nécessaires
@@ -36,14 +38,12 @@ data class Spot(
     val id: String,
     val destination: String,
     val address: String,
-    val peakSurfSeasonBegins: String? = null,
-    val peakSurfSeasonEnds: String? = null,
-    val difficultyLevel: Int? = null,
-    val surfBreak: List<String>? = null,
-    val smallThumbnail: String? = null,
-    val largeThumbnail: String? = null,
-    val fullThumbnail: String? = null,
-    val geocode: String? = null,
+    val peakSurfSeasonBegins: String,
+    val peakSurfSeasonEnds: String,
+    val difficultyLevel: Int,
+    val surfBreak: String,
+    val photos : String,
+    val geocode: String,
 )
 
 // Fonction pour charger les données des spots à partir du fichier JSON
@@ -69,7 +69,7 @@ fun loadSpotListFromJson(): SpotsObject {
                     destination = record.fields.destination,
                     address = record.fields.address,
                     surfBreak = record.fields.surfBreak,
-                    smallThumbnail = record.fields.photos.firstOrNull()?.thumbnails?.small?.url,
+                    photos = record.fields.photos,
                 )
             }
 
@@ -112,9 +112,7 @@ fun loadSpotFromJson(spotId: String): Spot? {
                     peakSurfSeasonEnds = record.fields.peakSurfSeasonEnds,
                     difficultyLevel = record.fields.difficultyLevel,
                     surfBreak = record.fields.surfBreak,
-                    smallThumbnail = record.fields.photos.firstOrNull()?.thumbnails?.small?.url,
-                    largeThumbnail = record.fields.photos.firstOrNull()?.thumbnails?.large?.url,
-                    fullThumbnail = record.fields.photos.firstOrNull()?.thumbnails?.full?.url,
+                    photos = record.fields.photos,
                     geocode = record.fields.geocode,
                 )
             }
@@ -126,4 +124,47 @@ fun loadSpotFromJson(spotId: String): Spot? {
         null  // Retourner null en cas d'erreur lors du chargement du fichier JSON
     }
 }
+
+data class Spots(
+    val records: MutableList<Record>
+)
+
+
+fun addSpot(newSpot: NewSpot) {
+    // Charger le fichier JSON existant
+    val jsonString = File("C:/Android/AndroidStudioProjects/projet-mobile-wavetracker/ktor-wavetracker/src/main/resources/spots.json").readText()
+    println("Existing JSON content: $jsonString")
+
+    // Mapper le JSON à la classe Spots
+    val spots = jacksonObjectMapper().readValue<Spots>(jsonString)
+
+    // Ajouter le nouveau spot à la liste existante
+    spots.records.add(
+        Record(
+            id = UUID.randomUUID().toString(),
+            createdTime = "NOUVELLE_DATE_CREATION",
+            fields = Fields(
+                geocode = newSpot.geocode,
+                photos = newSpot.photos,
+                peakSurfSeasonBegins = newSpot.peakSurfSeasonBegins,
+                destinationStateCountry = newSpot.destinationStateCountry,
+                peakSurfSeasonEnds = newSpot.peakSurfSeasonEnds,
+                difficultyLevel = newSpot.difficultyLevel,
+                destination = newSpot.destination,
+                surfBreak = newSpot.surfBreak,
+                address = newSpot.address
+            )
+        )
+    )
+
+    // Afficher la liste mise à jour
+    println("Updated spot list: $spots")
+
+    // Convertir la liste mise à jour en JSON et l'écrire dans le fichier
+    val updatedJson = jacksonObjectMapper().writeValueAsString(spots)
+    File("spots.json").writeText(updatedJson)
+}
+
+
+
 

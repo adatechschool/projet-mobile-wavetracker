@@ -12,8 +12,8 @@ data class Spots(
     val id: String,
     val destination: String,
     val address: String,
-    val surfBreak: List<String>? = null,
-    val smallThumbnail: String? = null,
+    val surfBreak: String,
+    val photos: String,
 )
 
 // Classe représentant les données d'un spot avec les informations nécessaires
@@ -21,14 +21,12 @@ data class SpotDetails(
     val id: String,
     val destination: String,
     val address: String,
-    val peakSurfSeasonBegins: String? = null,
-    val peakSurfSeasonEnds: String? = null,
-    val difficultyLevel: Int? = null,
-    val surfBreak: List<String>? = null,
-    val smallThumbnail: String? = null,
-    val largeThumbnail: String? = null,
-    val fullThumbnail: String? = null,
-    val geocode: String? = null,
+    val peakSurfSeasonBegins: String,
+    val peakSurfSeasonEnds: String,
+    val difficultyLevel: Int,
+    val surfBreak: String,
+    val photos: String,
+    val geocode: String,
 )
 
 //
