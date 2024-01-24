@@ -328,9 +328,6 @@ fun SpotList(navController: NavController, spots: SpotList) {
 
         }
 
-
-
-
     }
     Box(
         contentAlignment = Alignment.BottomCenter,
@@ -373,9 +370,13 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
         ) {
-
+            Text(
+                text = "Niveau de difficulté : ",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier
+                    .padding(2.dp)
+            )
             val difficultyLevel = content.difficultyLevel
-
             // boucle pour générer les étoiles
             if (difficultyLevel != null) {
                 repeat(difficultyLevel) {
@@ -405,7 +406,7 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
         Surface(
             shape = MaterialTheme.shapes.medium,
             modifier = Modifier
-                .padding(all = 4.dp)
+                .padding(4.dp)
                 .align(Alignment.CenterHorizontally),
             tonalElevation = 1.dp,
             shadowElevation = 1.dp
@@ -416,62 +417,83 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
             )
         }
 
-        Surface(
-            shape = MaterialTheme.shapes.medium,
-            modifier = Modifier
-                .padding(all = 4.dp)
-                .align(Alignment.CenterHorizontally),
-            tonalElevation = 1.dp,
-            shadowElevation = 1.dp
-        ) {
-
-            Column {
-
-                Text(
-                    text = "Surf Break : ${content.surfBreak}",
-                    color = MaterialTheme.colorScheme.primary,
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontStyle = FontStyle.Italic,
-                    fontWeight = FontWeight.Normal,
-                )
-            }
-        }
-
         Spacer(modifier = Modifier.height(10.dp))
 
-        Surface(
-            shape = MaterialTheme.shapes.medium,
-            modifier = Modifier
-                .padding(all = 4.dp)
-                .fillMaxWidth(),
-            tonalElevation = 1.dp,
-            shadowElevation = 1.dp
-        ) {
-
             Column {
-
-
-                Text(
-                    text = "Début de saison : ${content.peakSurfSeasonBegins}",
-                    color = Color(0, 200, 0),
-                    style = MaterialTheme.typography.bodyMedium,
+                Surface(
+                    shape = MaterialTheme.shapes.medium,
                     modifier = Modifier
-                        .padding(all = 4.dp)
-                )
+                        .padding(44.dp, 15.dp)
+                        .fillMaxWidth(),
+                    tonalElevation = 1.dp,
+                    shadowElevation = 1.dp
+                ) {
+                    Text(
+                        text = "Surf Break : ${content.surfBreak?.getOrNull(0) ?: "Surf break non renseigné"}",
+                        color = MaterialTheme.colorScheme.primary,
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontStyle = FontStyle.Italic,
+                        fontWeight = FontWeight.Normal,
+                    )
+                }
 
-
-                Text(
-                    text = "Fin de saison : ${content.peakSurfSeasonEnds}",
-                    color = Color.Red,
-                    style = MaterialTheme.typography.bodyMedium,
+                Surface(
+                    shape = MaterialTheme.shapes.medium,
                     modifier = Modifier
-                        .padding(all = 4.dp)
-                )
-            }
+                        .padding(44.dp, 15.dp)
+                        .fillMaxWidth(),
+                    tonalElevation = 1.dp,
+                    shadowElevation = 1.dp
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                    Column {
+
+                        Text(
+                            text = "Début de saison : ${content.peakSurfSeasonBegins}",
+                            color = Color(0, 200, 0),
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier
+                                .padding(all = 4.dp)
+                        )
+
+                        Text(
+                            text = "Fin de saison : ${content.peakSurfSeasonEnds}",
+                            color = Color.Red,
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier
+                                .padding(all = 4.dp)
+                        )
+
+                    }
+                        Spacer(modifier = Modifier.width(45.dp))
+                        val currentDate = LocalDate.now()
+                        val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+                        val debutDesaison = LocalDate.parse(content.peakSurfSeasonBegins, dateFormatter)
+                        val finDeSaison = LocalDate.parse(content.peakSurfSeasonEnds, dateFormatter)
+                        val isSaisonEnCours = currentDate.isAfter(debutDesaison) && currentDate.isBefore(finDeSaison)
+
+                        if (isSaisonEnCours) {
+                                Icon(
+                                    imageVector = Icons.Default.DateRange,
+                                    contentDescription = null,
+                                    tint = Color(android.graphics.Color.parseColor("#00561b"))
+                                )
+                        }
+                        else {
+                            Icon(
+                                imageVector = Icons.Default.DateRange,
+                                contentDescription = null,
+                                tint = Color.LightGray
+                            )
+                    }
+                }
         }
-
-
+            }
 }
+
     Box(
         contentAlignment = Alignment.BottomCenter,
         modifier = Modifier.fillMaxSize()
