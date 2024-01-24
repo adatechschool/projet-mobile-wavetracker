@@ -214,6 +214,7 @@ fun AddNewSpot(navController: NavHostController) {
                 contentColor = Color.White),
             modifier = Modifier
                 .width(170.dp)
+                .padding(bottom = 80.dp)
         ) {
             Text(text = "Valider")
         }

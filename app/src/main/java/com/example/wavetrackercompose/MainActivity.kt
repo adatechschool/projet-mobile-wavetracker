@@ -71,6 +71,7 @@ import java.time.format.DateTimeFormatter
 
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -196,7 +197,7 @@ fun SpotCard(navController: NavController, content: Spots) {
                 .fillMaxHeight()
         ) {
             Image(
-                painter = rememberAsyncImagePainter(content.smallThumbnail),
+                painter = rememberAsyncImagePainter(content.photos),
                 contentDescription = "surfer image",
                 modifier = Modifier
                     .size(100.dp)
@@ -230,7 +231,7 @@ fun SpotCard(navController: NavController, content: Spots) {
                 shadowElevation = 1.dp
             ) {
                 Text(
-                    text = content.destinationStateCountry,
+                    text = content.address,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(horizontal = 8.dp),
                 )
@@ -286,6 +287,7 @@ fun SpotCard(navController: NavController, content: Spots) {
 
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun SpotList(navController: NavController, spots: SpotList) {
     Column(
@@ -338,6 +340,7 @@ fun SpotList(navController: NavController, spots: SpotList) {
     Log.v("spotList", spots.toString())
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun SpotDetails(navController: NavController, content : SpotDetails) {
 
@@ -395,7 +398,7 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
         Spacer(modifier = Modifier.height(10.dp))
 
         Image(
-            painter = rememberAsyncImagePainter(content.largeThumbnail),
+            painter = rememberAsyncImagePainter(content.photos),
             contentDescription = "surfer image",
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
@@ -412,7 +415,7 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
             shadowElevation = 1.dp
         ) {
             Text(
-                text = content.destinationStateCountry,
+                text = content.address,
                 style = MaterialTheme.typography.bodyMedium
             )
         }

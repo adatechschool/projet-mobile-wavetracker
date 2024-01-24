@@ -14,6 +14,8 @@ data class Spots(
     val address: String,
     val surfBreak: String,
     val photos: String,
+    val peakSurfSeasonBegins: String,
+    val peakSurfSeasonEnds: String,
 )
 
 // Classe représentant les données d'un spot avec les informations nécessaires

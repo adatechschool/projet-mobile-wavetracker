@@ -31,6 +31,8 @@ data class SpotList(
     val address: String,
     val surfBreak: String,
     val photos: String,
+    val peakSurfSeasonBegins: String,
+    val peakSurfSeasonEnds: String,
 )
 
 // Classe représentant les données d'un spot avec les informations nécessaires
@@ -70,6 +72,8 @@ fun loadSpotListFromJson(): SpotsObject {
                     address = record.fields.address,
                     surfBreak = record.fields.surfBreak,
                     photos = record.fields.photos,
+                    peakSurfSeasonBegins = record.fields.peakSurfSeasonBegins,
+                    peakSurfSeasonEnds = record.fields.peakSurfSeasonEnds,
                 )
             }
 
