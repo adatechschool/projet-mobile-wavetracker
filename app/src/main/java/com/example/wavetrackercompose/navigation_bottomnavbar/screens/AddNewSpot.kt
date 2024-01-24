@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 /*import androidx.compose.foundation.layout.BoxScopeInstance.align*/
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
 /*import androidx.compose.foundation.layout.ColumnScopeInstance.align
 import androidx.compose.foundation.layout.FlowColumnScopeInstance.align*/
 import androidx.compose.foundation.layout.Spacer
@@ -20,6 +22,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -27,6 +30,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -72,6 +76,7 @@ fun AddNewSpot(navController: NavHostController) {
     var locationName by rememberSaveable { mutableStateOf("") }
     var seasonStart by rememberSaveable { mutableStateOf("") }
     var seasonEnds by rememberSaveable { mutableStateOf("") }
+    var selectedSurfBreak by rememberSaveable { mutableStateOf(0) }
     val imagePicker = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ) {result ->
@@ -84,10 +89,11 @@ fun AddNewSpot(navController: NavHostController) {
     // Contenu de la page
     Column(
         modifier = Modifier
+            .fillMaxSize()
             .padding(8.dp, 8.dp)
-    // reste à centrer le formulaire
             .verticalScroll(rememberScrollState()),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = "Ajouter un nouveau spot de surf",
@@ -122,6 +128,7 @@ fun AddNewSpot(navController: NavHostController) {
         )
 
         Spacer(modifier = Modifier.padding(5.dp))
+
         // Champ de saisie pour le début de la saison.
         Text(
             text = "Début de saison: "
@@ -134,6 +141,7 @@ fun AddNewSpot(navController: NavHostController) {
         )
 
         Spacer(modifier = Modifier.padding(5.dp))
+
         // Champ de saisie pour la fin de la saison.
         Text(
             text = "Fin de saison: "
@@ -144,8 +152,49 @@ fun AddNewSpot(navController: NavHostController) {
             onValueChange = { seasonEnds = it },
             placeholder = { Text(text = "ex: 2024-10-17") }
         )
-
         Spacer(modifier = Modifier.padding(5.dp))
+
+        Text("Type de surf break :")
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(35.dp, 0.dp),
+        verticalArrangement = Arrangement.spacedBy((-20).dp)
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(bottom = 4.dp)
+            ) {
+                Checkbox(
+                    checked = selectedSurfBreak == 1,
+                    onCheckedChange = { selectedSurfBreak = if (it) 1 else 0 },
+                )
+                Text("Beach break")
+            }
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(bottom = 4.dp)
+            ) {
+                Checkbox(
+                    checked = selectedSurfBreak == 2,
+                    onCheckedChange = { selectedSurfBreak = if (it) 2 else 0 },
+                )
+                Text("Reef break")
+            }
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(bottom = 4.dp)
+            ) {
+                Checkbox(
+                    checked = selectedSurfBreak == 3,
+                    onCheckedChange = { selectedSurfBreak = if (it) 3 else 0 },
+                )
+                Text("Point break")
+            }
+        }
+
+
+        Spacer(modifier = Modifier.padding(4.dp))
         // Bouton pour uploader une image.
         Button(onClick = {
             val intent = Intent(Intent.ACTION_PICK)
