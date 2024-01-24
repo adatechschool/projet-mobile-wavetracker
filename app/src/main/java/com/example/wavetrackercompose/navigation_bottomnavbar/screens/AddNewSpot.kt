@@ -8,10 +8,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScopeInstance.align
+/*import androidx.compose.foundation.layout.BoxScopeInstance.align*/
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScopeInstance.align
-import androidx.compose.foundation.layout.FlowColumnScopeInstance.align
+/*import androidx.compose.foundation.layout.ColumnScopeInstance.align
+import androidx.compose.foundation.layout.FlowColumnScopeInstance.align*/
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize

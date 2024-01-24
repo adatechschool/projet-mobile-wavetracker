@@ -2,10 +2,12 @@
 
 package com.example.wavetrackercompose
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -16,6 +18,7 @@ import com.example.wavetrackercompose.ui.theme.WaveTrackerComposeTheme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -46,8 +49,10 @@ import kotlinx.coroutines.runBlocking
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -61,6 +66,8 @@ import com.example.wavetrackercompose.navigation_bottomnavbar.screens.BackToHome
 import coil.compose.rememberAsyncImagePainter
 import com.example.wavetrackercompose.model.SpotDetails
 import com.example.wavetrackercompose.model.SpotList
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 class MainActivity : ComponentActivity() {
@@ -173,36 +180,36 @@ fun SootheBottomNavigation(navController: NavController, modifier: Modifier = Mo
 
 //data class Spot(val id: Int, val name: String, val location: String)
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun SpotCard(navController: NavController, content: Spots) {
-    // Add padding around our message
     Row(modifier = Modifier
         .padding(all = 8.dp)
         .clickable {
-            // Naviguer vers les détails du spot lorsque l'élément est cliqué
             navController.navigate("spot/${content.id}")
         }
-    )
-    {
+    ) {
 
-        Log.v("spotURL", "Error response: ${content.smallThumbnail}")
-
-        Image(
-            painter = rememberAsyncImagePainter(content.smallThumbnail),
-            contentDescription = "surfer image",
+        Column(
             modifier = Modifier
-                // Set image size to 40 dp
-                .size(100.dp)
-                // Clip image to be shaped as a circle
-                .clip(CircleShape)
-        )
+                .width(100.dp)
+                .fillMaxHeight()
+        ) {
+            Image(
+                painter = rememberAsyncImagePainter(content.smallThumbnail),
+                contentDescription = "surfer image",
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(CircleShape)
+            )
+        }
 
-        // Add a horizontal space between the image and the column
         Spacer(modifier = Modifier.width(10.dp))
 
         Column(
             modifier = Modifier
                 .fillMaxHeight()
+                .weight(1f)
                 .padding(10.dp),
         ) {
             Spacer(modifier = Modifier.height(10.dp))
@@ -212,7 +219,7 @@ fun SpotCard(navController: NavController, content: Spots) {
                 color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.titleMedium,
             )
-            // Add a vertical space between the author and message texts
+
             Spacer(modifier = Modifier.height(4.dp))
 
             Surface(
@@ -223,17 +230,60 @@ fun SpotCard(navController: NavController, content: Spots) {
                 shadowElevation = 1.dp
             ) {
                 Text(
-                    text = content.address,
+                    text = content.destinationStateCountry,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(horizontal = 8.dp),
                 )
             }
 
+            Spacer(modifier = Modifier.height(10.dp))
+        }
 
+        Column(
+            modifier = Modifier
+                .fillMaxHeight()
+                .padding(top = 30.dp)
+                .padding(5.dp),
+
+        ) {
+            val currentDate = LocalDate.now()
+            val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+            val debutDesaison = LocalDate.parse(content.peakSurfSeasonBegins, dateFormatter)
+            val finDeSaison = LocalDate.parse(content.peakSurfSeasonEnds, dateFormatter)
+            val isSaisonEnCours = currentDate.isAfter(debutDesaison) && currentDate.isBefore(finDeSaison)
+
+            if (isSaisonEnCours) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .padding(10.dp),
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.DateRange,
+                        contentDescription = null,
+                        tint = Color(android.graphics.Color.parseColor("#00561b"))
+                    )
+                }
+            }
+            else {
+                Column(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .padding(10.dp),
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.DateRange,
+                        contentDescription = null,
+                        tint = Color.LightGray
+                    )
+                }
+            }
         }
     }
-
 }
+
 
 
 @Composable
@@ -275,7 +325,9 @@ fun SpotList(navController: NavController, spots: SpotList) {
             items(spots.spotList) { spot ->
                 SpotCard(navController, content = spot)
             }
+
         }
+
 
 
 
@@ -359,7 +411,7 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
             shadowElevation = 1.dp
         ) {
             Text(
-                text = content.address,
+                text = content.destinationStateCountry,
                 style = MaterialTheme.typography.bodyMedium
             )
         }

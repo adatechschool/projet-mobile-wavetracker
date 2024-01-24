@@ -26,7 +26,9 @@ fun Application.module() {
 data class SpotList(
     val id: String,
     val destination: String,
-    val address: String,
+    val destinationStateCountry: String,
+    val peakSurfSeasonBegins: String? = null,
+    val peakSurfSeasonEnds: String? = null,
     val surfBreak: List<String>? = null,
     val smallThumbnail: String? = null,
 )
@@ -35,7 +37,7 @@ data class SpotList(
 data class Spot(
     val id: String,
     val destination: String,
-    val address: String,
+    val destinationStateCountry: String,
     val peakSurfSeasonBegins: String? = null,
     val peakSurfSeasonEnds: String? = null,
     val difficultyLevel: Int? = null,
@@ -67,8 +69,10 @@ fun loadSpotListFromJson(): SpotsObject {
                 SpotList(
                     id = record.id,
                     destination = record.fields.destination,
-                    address = record.fields.address,
+                    destinationStateCountry = record.fields.destinationStateCountry,
                     surfBreak = record.fields.surfBreak,
+                    peakSurfSeasonBegins = record.fields.peakSurfSeasonBegins,
+                    peakSurfSeasonEnds = record.fields.peakSurfSeasonEnds,
                     smallThumbnail = record.fields.photos.firstOrNull()?.thumbnails?.small?.url,
                 )
             }
@@ -107,7 +111,7 @@ fun loadSpotFromJson(spotId: String): Spot? {
                 Spot(
                     id = record.id,
                     destination = record.fields.destination,
-                    address = record.fields.address,
+                    destinationStateCountry = record.fields.destinationStateCountry,
                     peakSurfSeasonBegins = record.fields.peakSurfSeasonBegins,
                     peakSurfSeasonEnds = record.fields.peakSurfSeasonEnds,
                     difficultyLevel = record.fields.difficultyLevel,

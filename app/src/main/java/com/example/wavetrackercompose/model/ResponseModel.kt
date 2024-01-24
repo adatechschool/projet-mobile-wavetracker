@@ -11,7 +11,9 @@ data class SpotList(
 data class Spots(
     val id: String,
     val destination: String,
-    val address: String,
+    val peakSurfSeasonBegins: String? = null,
+    val peakSurfSeasonEnds: String? = null,
+    val destinationStateCountry: String,
     val surfBreak: List<String>? = null,
     val smallThumbnail: String? = null,
 )
@@ -20,7 +22,7 @@ data class Spots(
 data class SpotDetails(
     val id: String,
     val destination: String,
-    val address: String,
+    val destinationStateCountry: String,
     val peakSurfSeasonBegins: String? = null,
     val peakSurfSeasonEnds: String? = null,
     val difficultyLevel: Int? = null,
