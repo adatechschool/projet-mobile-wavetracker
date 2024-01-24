@@ -162,7 +162,10 @@ fun addSpot(newSpot: NewSpot) {
 
     // Convertir la liste mise à jour en JSON et l'écrire dans le fichier
     val updatedJson = jacksonObjectMapper().writeValueAsString(spots)
-    File("spots.json").writeText(updatedJson)
+    File("C:/Android/AndroidStudioProjects/projet-mobile-wavetracker/ktor-wavetracker/src/main/resources/spots.json").writeText(updatedJson)
+
+//    val jsonStringUpdate = File("C:/Android/AndroidStudioProjects/projet-mobile-wavetracker/ktor-wavetracker/src/main/resources/spots.json").readText()
+//    println("Existing JSON content: $jsonStringUpdate")
 }
 
 
