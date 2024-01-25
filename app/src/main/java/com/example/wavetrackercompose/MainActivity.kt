@@ -231,7 +231,7 @@ fun SpotCard(navController: NavController, content: Spots) {
                 shadowElevation = 1.dp
             ) {
                 Text(
-                    text = content.address,
+                    text = content.destinationStateCountry,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(horizontal = 8.dp),
                 )
@@ -415,7 +415,7 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
             shadowElevation = 1.dp
         ) {
             Text(
-                text = content.address,
+                text = content.destinationStateCountry,
                 style = MaterialTheme.typography.bodyMedium
             )
         }
@@ -432,7 +432,7 @@ fun SpotDetails(navController: NavController, content : SpotDetails) {
                     shadowElevation = 1.dp
                 ) {
                     Text(
-                        text = "Surf Break : ${content.surfBreak?.getOrNull(0) ?: "Surf break non renseigné"}",
+                        text = "Surf Break : ${content.surfBreak}",
                         color = MaterialTheme.colorScheme.primary,
                         style = MaterialTheme.typography.bodyMedium,
                         fontStyle = FontStyle.Italic,

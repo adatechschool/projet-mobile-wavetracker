@@ -51,6 +51,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.wavetrackercompose.SootheBottomNavigation
+import com.example.wavetrackercompose.model.NewSpotRequest
 
 
 // Fonction qui permet de naviguer vers l'écran d'accueil
@@ -208,7 +209,8 @@ fun AddNewSpot(navController: NavHostController) {
         Spacer(modifier = Modifier.padding(2.dp))
         // Bouton de validation du formulaire
         Button(onClick = {
-            navController.navigateUp()},
+            navController.navigateUp()
+                         },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(android.graphics.Color.parseColor("#00561b")),
                 contentColor = Color.White),

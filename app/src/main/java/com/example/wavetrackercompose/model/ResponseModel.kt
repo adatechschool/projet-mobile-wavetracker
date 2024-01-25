@@ -16,6 +16,7 @@ data class Spots(
     val photos: String,
     val peakSurfSeasonBegins: String,
     val peakSurfSeasonEnds: String,
+    val destinationStateCountry: String,
 )
 
 // Classe représentant les données d'un spot avec les informations nécessaires
@@ -25,10 +26,24 @@ data class SpotDetails(
     val address: String,
     val peakSurfSeasonBegins: String,
     val peakSurfSeasonEnds: String,
+    val destinationStateCountry: String,
     val difficultyLevel: Int,
     val surfBreak: String,
     val photos: String,
     val geocode: String,
+)
+
+
+data class NewSpotRequest(
+    val geocode: String,
+    val photos: String,
+    val peakSurfSeasonBegins: String,
+    val destinationStateCountry: String,
+    val peakSurfSeasonEnds: String,
+    val difficultyLevel: Int,
+    val destination: String,
+    val surfBreak: String,
+    val address: String
 )
 
 //

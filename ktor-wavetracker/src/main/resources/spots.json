@@ -149,6 +149,21 @@
         "Surf Break": "Point Break",
         "Address": "Playa Chicama, Lima, Peru"
       }
+    },
+    {
+      "id": "f3cc7e80-b07c-4eaa-87ea-d87849d93799",
+      "createdTime": "NOUVELLE_DATE_CREATION",
+      "fields": {
+        "Geocode": "Votre_geocode",
+        "Photos": "https://www.surf-dive.fr/wp-content/uploads/2018/12/figure-de-surf.jpg",
+        "Peak Surf Season Begins": "2023-05-04",
+        "Destination State/Country": "Votre_destination_etat_pays",
+        "Peak Surf Season Ends": "2024-05-04",
+        "Difficulty Level": 3,
+        "Destination": "Votre_destination",
+        "Surf Break": "Votre_surf_break",
+        "Address": "Votre_adresse"
+      }
     }
   ]
 }
